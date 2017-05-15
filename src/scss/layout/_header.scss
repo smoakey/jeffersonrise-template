@@ -1,0 +1,63 @@
+header {
+    position: fixed;
+    padding: 20px 0;
+    height: 110px;
+    width: 100%;
+
+    h1 {
+        margin-bottom: 0;
+
+        a,
+        a:hover {
+            display: block;
+            width: 261px;
+            height: 100px;
+            background: url('../../img/logo-white.png') no-repeat 0 0;
+            color: transparent;
+        }
+    }
+
+    .menu {
+        margin: 0;
+        list-style: none;
+        margin-top: 40px;
+        float: right;
+
+        li {
+            margin: 0;
+            float: left;
+
+            + li {
+                // margin-left: 20px;
+            }
+
+            &.apply-now {
+                a {
+                    background-color: $jeffrise-red;
+                    color: white;
+                    margin-left: 10px;
+
+                    &:hover {
+                        background-color: darken($jeffrise-red, 10%);
+                        color: white;
+                    }
+                }
+            }
+
+            a {
+                padding: 10px 20px;
+                color: white;
+                text-decoration: none;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: $jeffrise-red;
+                }
+            }
+        }
+    }
+
+    .sub-menu {
+        display: none;
+    }
+}
