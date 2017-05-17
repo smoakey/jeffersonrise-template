@@ -1,12 +1,7 @@
 <header>
-    <div class="container">
-        <div class="row">
-            <div class="four columns">
-                <h1><a title="Home" href="/">Jefferson RISE</a></h1>
-            </div>
-            <div class="eight columns">
-                <?php wp_nav_menu(['menu' => 'Main']) ?>
-            </div>
-        </div>
-    </div>
+    <h1><a title="Home" href="/">Jefferson RISE</a></h1>
+    <a href="" class="menu-trigger">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+    </a>
+    <?php wp_nav_menu(['menu' => 'Main']) ?>
 </header>

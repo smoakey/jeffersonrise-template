@@ -1,6 +1,6 @@
 .hero {
-    height: 200px;
-    padding: 200px 100px;
+    height: 100px;
+    padding: 250px 100px;
     background: linear-gradient(
         rgba(0, 0, 0, 0.60),
         rgba(0, 0, 0, 0.60)
@@ -9,16 +9,45 @@
 
     h1,
     h2 {
-        text-align: center;
         color: white;
         font-size: 60px;
         font-weight: 400;
         text-transform: uppercase;
+        // margin: 0;
+    }
+
+    h1 {
         margin: 0;
     }
 
     h2 {
         font-size: 24px;
         font-weight: 100;
+    }
+
+    .button {
+        color: white;
+
+
+        &:hover {
+            background: white;
+            border-color: white;
+            color: black;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .hero {
+        padding: 150px 20px 100px 20px;
+        height: auto;
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
     }
 }

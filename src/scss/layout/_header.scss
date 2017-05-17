@@ -1,34 +1,91 @@
 header {
     position: fixed;
-    padding: 20px 0;
-    height: 110px;
-    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    transition: all 0.3s ease-in-out;
+
+    &.scrolled {
+        background: white;
+
+        h1 {
+            a {
+                background-image: url('../../img/logo-gray.png');
+            }
+        }
+
+        .menu-trigger {
+            &:hover,
+            &.active {
+                background-color: $jeffrise-red;
+            }
+        }
+
+        .menu a {
+            color: gray
+        }
+
+        .sub-menu {
+            background: gray;
+
+            &:before {
+                border-bottom-color: gray;
+            }
+
+            a {
+                color: white;
+            }
+        }
+    }
 
     h1 {
-        margin-bottom: 0;
+        margin: 0;
 
-        a,
-        a:hover {
+        a {
             display: block;
             width: 261px;
             height: 100px;
             background: url('../../img/logo-white.png') no-repeat 0 0;
-            color: transparent;
+            background-size: 100%;
+            text-indent: -9999px;
+        }
+    }
+
+    .menu-trigger {
+        position: absolute;
+        top: 25px;
+        right: 20px;
+        border: 1px solid gray;
+        color: gray;
+        padding: 5px 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: none;
+
+        &:hover,
+        &.active {
+            color: white;
+            border-color: white;
         }
     }
 
     .menu {
         margin: 0;
         list-style: none;
-        margin-top: 40px;
-        float: right;
+        position: absolute;
+        right: 40px;
+        top: 60px;
 
         li {
             margin: 0;
             float: left;
+            position: relative;
+            padding-bottom: 20px;
 
-            + li {
-                // margin-left: 20px;
+            &:hover {
+                .sub-menu {
+                    display: block;
+                }
             }
 
             &.apply-now {
@@ -59,5 +116,136 @@ header {
 
     .sub-menu {
         display: none;
+        width: 170px;
+        background: white;
+        position: absolute;
+        top: 40px;
+        left: 20px;
+        margin: 0;
+        padding: 10px 0;
+        list-style: none;
+
+        &:before {
+            content: '';
+            border-top: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid white;
+            border-left: 6px solid transparent;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: -12px;
+            left: 10px;
+        }
+
+        li {
+            float: none;
+            padding: 0;
+
+            a {
+                display: block;
+                color: gray;
+                font-size: 0.8em;
+
+                &:hover {
+                    background-color: $jeffrise-red;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 1080px) {
+    header {
+        border-bottom: 1px solid rgba(255,255,255,0.25);
+        h1 {
+            a {
+                width: 150px;
+                height: 57px;
+            }
+        }
+
+        .menu-trigger {
+            display: block;
+            top: 30px;
+            right: 40px;
+        }
+
+        .menu {
+            display: none;
+            position: static;
+
+            li {
+                float: none;
+                width: 100%;
+                padding-bottom: 0;
+
+                + li {
+                    border-top: 1px solid #ccc;
+                }
+
+                &:hover .sub-menu {
+                    display: none;
+                }
+
+                &.apply-now a {
+                    margin-left: 0;
+                }
+
+                &.menu-item-has-children > a {
+                    &:after {
+                        content: '\f0d7';
+                        font-family: 'Fontawesome';
+                        color: #ccc;
+                        padding-left: 8px;
+                    }
+                }
+
+                a {
+                    display: block;
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+        }
+
+        .sub-menu {
+            position: static;
+            width: auto;
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    header {
+        padding: 10px 20px 15px 20px;
+        h1 {
+            a {
+                width: 150px;
+                height: 57px;
+            }
+        }
+
+        .menu-trigger {
+            right: 20px;
+            top: 25px;
+        }
+
+        .menu {
+            display: none;
+
+            li {
+                float: none;
+                width: 100%;
+            }
+        }
     }
 }
