@@ -2,23 +2,52 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 .u-full-width {
-  width: 100%;
-  box-sizing: border-box;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .u-max-full-width {
-  max-width: 100%;
-  box-sizing: border-box;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .u-pull-right {
-  float: right;
+    float: right;
 }
 
 .u-pull-left {
-  float: left;
+    float: left;
 }
 
+.text-left {
+    text-align: left;
+}
 .text-center {
     text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+.no-margin  {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.title {
+    position: relative;
+    margin-bottom: 40px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        width: 120px;
+        height: 4px;
+        background: $jeffrise-red;
+    }
 }

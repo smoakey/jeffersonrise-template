@@ -1,19 +1,19 @@
 .hero {
-    height: 100px;
+    // max-height: 100vh;
+    box-sizing: border-box;
+    height: 100vh;
     padding: 250px 100px;
     background: linear-gradient(
         rgba(0, 0, 0, 0.60),
         rgba(0, 0, 0, 0.60)
-    ), url('../../img/hero.png') no-repeat 0 0;
+    ), url('../../img/hero.png') no-repeat 50% 0;
     background-size: cover;
 
     h1,
     h2 {
         color: white;
         font-size: 60px;
-        font-weight: 400;
         text-transform: uppercase;
-        // margin: 0;
     }
 
     h1 {
@@ -27,7 +27,6 @@
 
     .button {
         color: white;
-
 
         &:hover {
             background: white;

@@ -3,7 +3,7 @@
 
 button,
 .button {
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
 }
 
 input,
@@ -23,4 +23,9 @@ ul,
 ol,
 form {
   margin-bottom: 2.5rem;
+}
+
+
+section {
+    padding: 40px 0;
 }

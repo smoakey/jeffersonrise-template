@@ -6,9 +6,7 @@ const $ = jQuery;
 $(document).ready(init);
 
 function init() {
-
-
-    $(window).on('scroll', _.debounce(handleWindowScroll, 100));
+    $(window).on('scroll', _.throttle(handleWindowScroll, 500));
     $('.menu-trigger').on('click', toggleMenu);
     $('.menu a').on('click', toggleSubMenus);
 }
@@ -34,7 +32,7 @@ function toggleMenu(event) {
     }
 
     $(this).toggleClass('active');
-    $('header .menu').slideToggle();
+    $('header .menu').toggle();
 }
 
 function toggleSubMenus(event) {
@@ -43,6 +41,7 @@ function toggleSubMenus(event) {
     var next = $this.next();
     var windowWidth = $(window).width();
     if (next.hasClass('sub-menu') && windowWidth <= 1080) {
+        $this.toggleClass('active')
         next.slideToggle();
     }
 }

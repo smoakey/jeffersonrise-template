@@ -1,0 +1,14 @@
+.news-item {
+    .news-title a {
+        color: gray;
+        text-decoration: none;
+
+        &:hover {
+            color: $jeffrise-red;
+        }
+    }
+
+    .news-date {
+        text-transform: uppercase;
+    }
+}
