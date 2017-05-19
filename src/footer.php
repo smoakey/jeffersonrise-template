@@ -1,3 +1,11 @@
+        <?php if (get_field('footer_button_link')) : ?>
+            <section class="footer-link no-padding">
+                <a href="<?php the_field('footer_button_link'); ?>" class="button button-block button-solid-blue button-xlarge">
+                    <?php the_field('footer_button_text'); ?> <span>&raquo;</span>
+                </a>
+            </section>
+        <?php endif; ?>
+
         <footer class="social">
             <div class="container">
                 <div class="twelve columns text-center">

@@ -150,34 +150,45 @@ input {
   }
 }
 
-@media (min-width: 800px) {
-    .button-large-screen-large {
-        height: 58px;
-        line-height: 58px;
-        font-size: 18px;
-        padding: 0 50px;
-    }
-
-    .button-xlarge {
-        height: 128px;
-        line-height: 128px;
-        font-size: 24px;
-        padding: 0 50px;
-    }
-}
-
 .button-block {
     display: block;
-
+    width: 100%;
 }
 
 .button-red {
-    color: white;
-    background-color: $jeffrise-red;
+    color: $jeffrise-red;
     border-color: $jeffrise-red;
 }
 
 .button-blue {
+    color: $jeffrise-blue;
+    border-color: $jeffrise-blue;
+}
+
+.button-white {
+    color: white;
+    border-color: white;
+}
+
+.button-solid-white-hover:hover {
+    color: black;
+    border-color: white;
+    background-color: white;
+}
+
+.button-solid-red {
+    color: white;
+    background-color: $jeffrise-red;
+    border-color: $jeffrise-red;
+
+    &:hover {
+        color: white;
+        border-color: lighten($jeffrise-red, 10%);
+        background-color: lighten($jeffrise-red, 10%);
+    }
+}
+
+.button-solid-blue {
     color: white;
     background-color: $jeffrise-blue;
     border-color: $jeffrise-blue;
@@ -187,4 +198,18 @@ input {
         border-color: lighten($jeffrise-blue, 10%);
         background-color: lighten($jeffrise-blue, 10%);
     }
+}
+
+.button-large {
+    height: 58px;
+    line-height: 58px;
+    font-size: 18px;
+    padding: 0 50px;
+}
+
+.button-xlarge {
+    height: 88px;
+    line-height: 88px;
+    font-size: 24px;
+    padding: 0 100px;
 }
