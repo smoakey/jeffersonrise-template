@@ -16,12 +16,15 @@
 @import "modules/code";
 @import "modules/tables";
 @import "modules/spacing";
-@import "modules/media-queries";
 @import "modules/images";
 
 /* Layout */
 @import "layout/header";
+@import "layout/menu";
 @import "layout/hero";
 @import "layout/call_to_action";
 @import "layout/news";
 @import "layout/footer";
+
+/* Pages */
+@import "pages/home";

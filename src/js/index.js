@@ -6,9 +6,20 @@ const $ = jQuery;
 $(document).ready(init);
 
 function init() {
+    $(window).on('resize', _.debounce(setMainMargin, 500)).trigger('resize');
     $(window).on('scroll', _.throttle(handleWindowScroll, 500));
     $('.menu-trigger').on('click', toggleMenu);
     $('.menu a').on('click', toggleSubMenus);
+}
+
+function setMainMargin() {
+    const body = $('body');
+    const header = $('header');
+    const main = $('main');
+
+    if (body.hasClass('home')) return;
+
+    main.css('padding-top', header.outerHeight());
 }
 
 function handleWindowScroll() {
@@ -36,11 +47,11 @@ function toggleMenu(event) {
 }
 
 function toggleSubMenus(event) {
-    event.preventDefault();
     var $this = $(this);
     var next = $this.next();
     var windowWidth = $(window).width();
     if (next.hasClass('sub-menu') && windowWidth <= 1080) {
+        event.preventDefault();
         $this.toggleClass('active')
         next.slideToggle();
     }

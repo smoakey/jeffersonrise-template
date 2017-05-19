@@ -1,0 +1,28 @@
+.home header:not(.scrolled) {
+    background: inherit;
+    border-bottom-color: transparent;
+
+    h1 a {
+        background-image: url('../../img/logo-white.png');
+    }
+
+    .menu a {
+        color: white;
+    }
+
+    .sub-menu {
+        background: white;
+
+        &:before {
+            border-bottom-color: white;
+        }
+
+        a {
+            color: gray;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}

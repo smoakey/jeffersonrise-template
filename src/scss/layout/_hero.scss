@@ -1,8 +1,7 @@
 .hero {
-    // max-height: 100vh;
     box-sizing: border-box;
     height: 100vh;
-    padding: 250px 100px;
+    padding: 250px 100px 0 100px;
     background: linear-gradient(
         rgba(0, 0, 0, 0.60),
         rgba(0, 0, 0, 0.60)
@@ -27,6 +26,7 @@
 
     .button {
         color: white;
+        margin-top: 50px;
 
         &:hover {
             background: white;
@@ -36,7 +36,7 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (#{$bp-smaller-than-tablet}) {
     .hero {
         padding: 150px 20px 100px 20px;
         height: auto;
