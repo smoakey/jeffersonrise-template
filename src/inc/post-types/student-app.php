@@ -11,7 +11,7 @@ function create_student_app_post_type() {
             'not_found' => __('No Student Apps Found'),
         ],
         'description' => 'Student Apps',
-        'public' => fakse,
+        'public' => false,
         'has_archive' => false,
         'show_in_menu' => 'portal',
         'supports' => ['title']

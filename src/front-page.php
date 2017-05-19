@@ -23,31 +23,24 @@
             <div class="container">
                 <h3 class="title">News &amp; Events</h3>
                 <div class="row">
-                    <div class="four columns">
-                        <div class="news-item">
-                            <img src="http://www.clipartbest.com/cliparts/acq/65d/acq65dRoi.jpg" />
-                            <h5 class="no-margin news-title"><a href="#">Example News Article</a></h5>
-                            <p class="news-date">March 21, 2017</p>
-                        </div>
-                    </div>
-                    <div class="four columns">
-                        <div class="news-item">
-                            <img src="http://www.clipartbest.com/cliparts/acq/65d/acq65dRoi.jpg" />
-                            <h5 class="no-margin news-title"><a href="#">Example News Article</a></h5>
-                            <p class="news-date">March 21, 2017</p>
-                        </div>
-                    </div>
-                    <div class="four columns">
-                        <div class="news-item">
-                            <img src="http://www.clipartbest.com/cliparts/acq/65d/acq65dRoi.jpg" />
-                            <h5 class="no-margin news-title"><a href="#">Example News Article</a></h5>
-                            <p class="news-date">March 21, 2017</p>
-                        </div>
-                    </div>
+                    <?php $query = new WP_Query(['post_type' => 'news', 'posts_per_page' => 3]); ?>
+                    <?php if ($query->have_posts()) : ?>
+                        <?php while ($query->have_posts()) : $query->the_post(); ?>
+                            <div class="four columns">
+                                <div class="news-item">
+                                    <img src="<?php the_field('news_image'); ?>" />
+                                    <h5 class="no-margin news-title">
+                                        <a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a>
+                                    </h5>
+                                    <p class="news-date"><?php the_field('news_date'); ?></p>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
                 <div class="row">
                     <div class="twelve columns text-center">
-                        <a href="" class="button button-blue">View all News &amp; Events</a>
+                        <a href="/news" class="button button-blue">View all News &amp; Events</a>
                     </div>
                 </div>
             </div>
