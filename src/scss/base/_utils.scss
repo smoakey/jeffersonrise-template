@@ -29,12 +29,34 @@
     text-align: right;
 }
 
+.text-red {
+    color: $jeffrise-red;
+}
+.text-blue {
+    color: $jeffrise-blue;
+}
+.text-white {
+    color: white;
+}
+.text-gray {
+    color: gray;
+}
+.text-light-gray {
+    color: #ccc;
+}
+
 .no-margin  {
     margin: 0;
 }
-
 .no-padding {
     padding: 0;
+}
+
+.margin-bottom-twenty {
+    margin-bottom: 20px;
+}
+.margin-bottom-fourty {
+    margin-bottom: 40px;
 }
 
 .title {
@@ -50,4 +72,10 @@
         height: 4px;
         background: $jeffrise-red;
     }
+}
+
+.text-center .title:before,
+.text-center.title:before {
+    left: 50%;
+    margin-left: -60px;
 }

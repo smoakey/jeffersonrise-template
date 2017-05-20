@@ -1,18 +1,6 @@
 .call-to-action {
-    padding: 40px 40% 40px 40px;
-    position: relative;
-
-    .action {
-        background: $jeffrise-red;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 30%;
-        color: white;
-        font-size: 36px;
-        font-weight: 100;
-        padding: 85px 0;
-        text-align: center;
+    .button {
+        height: 150px;
+        line-height: 150px;
     }
 }
