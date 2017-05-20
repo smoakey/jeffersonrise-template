@@ -13,6 +13,7 @@ function create_student_app_post_type() {
         'description' => 'Student Apps',
         'public' => false,
         'has_archive' => false,
+        'show_ui' => true,
         'show_in_menu' => 'portal',
         'supports' => ['title']
     ]);

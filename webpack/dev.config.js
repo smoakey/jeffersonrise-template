@@ -13,7 +13,7 @@ const buildDir = path.resolve(__dirname, '../wordpress/wp-content/themes/' + the
 const serverConfig = {
     host: 'localhost',
     scheme: 'http',
-    port: 3000,
+    port: 3001,
     url: function () {
         return this['scheme'] + '://' + this['host'] + ':' + this['port'];
     }

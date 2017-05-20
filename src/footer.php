@@ -9,10 +9,26 @@
         <footer class="social">
             <div class="container">
                 <div class="twelve columns text-center">
-                    <a href=""><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
-                    <a href=""><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-                    <a href=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-                    <a href=""><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a>
+                    <?php if (get_theme_mod('twitter_link')) : ?>
+                        <a href="<?php echo get_theme_mod('twitter_link'); ?>" target="_blank">
+                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                        </a>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('facebook_link')) : ?>
+                        <a href="<?php echo get_theme_mod('facebook_link'); ?>" target="_blank">
+                            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                        </a>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('instagram_link')) : ?>
+                        <a href="<?php echo get_theme_mod('instagram_link'); ?>" target="_blank">
+                            <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                        </a>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('youtube_link')) : ?>
+                        <a href="<?php echo get_theme_mod('youtube_link'); ?>" target="_blank">
+                            <i class="fa fa-youtube fa-2x" aria-hidden="true"></i>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </footer>
