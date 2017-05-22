@@ -1,3 +1,9 @@
 img {
     max-width: 100%;
+
+    &.alignleft {
+        float: left;
+        margin-right: 40px;
+        margin-bottom: 40px;
+    }
 }

@@ -11,11 +11,10 @@
     box-sizing: border-box;
 }
 
-.u-pull-right {
+.pull-right {
     float: right;
 }
-
-.u-pull-left {
+.pull-left {
     float: left;
 }
 
@@ -59,7 +58,7 @@
     margin-bottom: 40px;
 }
 
-.title {
+.section-title {
     position: relative;
     margin-bottom: 40px;
 
@@ -74,8 +73,8 @@
     }
 }
 
-.text-center .title:before,
-.text-center.title:before {
+.text-center .section-title:before,
+.text-center.section-title:before {
     left: 50%;
     margin-left: -60px;
 }

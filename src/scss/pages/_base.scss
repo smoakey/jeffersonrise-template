@@ -1,0 +1,13 @@
+.page-header {
+    padding: 40px 0;
+    color: white;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.60),
+        rgba(0, 0, 0, 0.60)
+    ), url('../../img/hero.png') no-repeat 50% 35%;
+    background-size: cover;
+}
+
+.page-content {
+    padding: 40px 0;
+}

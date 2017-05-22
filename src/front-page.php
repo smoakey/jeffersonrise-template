@@ -12,7 +12,7 @@
         <section class="call-to-action">
             <div class="container">
                 <div class="eight columns">
-                    <h3 class="title"><?php the_field('call_to_action_title'); ?></h3>
+                    <h3 class="section-title"><?php the_field('call_to_action_title'); ?></h3>
                     <p class="no-margin"><?php the_field('call_to_action_description'); ?></p>
                 </div>
                 <div class="four columns">
@@ -25,7 +25,7 @@
 
         <section class="our-model">
             <div class="container text-center">
-                <h3 class="title text-white">Our Model</h3>
+                <h3 class="section-title text-white">Our Model</h3>
                 <h6 class="subtitle text-light-gray text-center margin-bottom-fourty">
                     <?php the_field('our_model_subtitle'); ?>
                 </h6>
@@ -44,7 +44,7 @@
 
         <section class="">
             <div class="container">
-                <h3 class="title">News &amp; Events</h3>
+                <h3 class="section-title">News &amp; Events</h3>
                 <div class="row">
                     <?php $query = new WP_Query(['post_type' => 'news', 'posts_per_page' => 3]); ?>
                     <?php if ($query->have_posts()) : ?>
@@ -59,6 +59,7 @@
                                 </div>
                             </div>
                         <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                     <?php endif; ?>
                 </div>
                 <div class="row">

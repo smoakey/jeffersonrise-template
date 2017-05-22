@@ -15,6 +15,7 @@
 @import "modules/lists";
 @import "modules/code";
 @import "modules/tables";
+@import "modules/pagination";
 @import "modules/spacing";
 @import "modules/images";
 
@@ -28,4 +29,6 @@
 @import "layout/footer";
 
 /* Pages */
+@import "pages/base";
 @import "pages/home";
+@import "pages/news";

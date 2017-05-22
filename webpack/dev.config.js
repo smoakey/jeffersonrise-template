@@ -15,7 +15,7 @@ const serverConfig = {
     scheme: 'http',
     port: 3001,
     url: function () {
-        return this['scheme'] + '://' + this['host'] + ':' + this['port'];
+        return this['scheme'] + '://' + this['host'] + ':' + this['port'] + '/';
     }
 };
 
@@ -28,14 +28,14 @@ module.exports = {
     output: {
         path: buildDir,
         filename: 'bundle.js',
-        publicPath: serverConfig.url() + '/dist/'
+        publicPath: serverConfig.url()
     },
     devServer: {
         hot: true,
         stats: 'errors-only',
         clientLogLevel: 'none',
         contentBase: buildDir,
-        publicPath: serverConfig.url() + '/dist/',
+        publicPath: serverConfig.url(),
         https: serverConfig.scheme == 'https',
         port: serverConfig.port,
         headers: {
@@ -64,7 +64,9 @@ module.exports = {
     plugins: [
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new WriteFilePlugin(),
+        new WriteFilePlugin({
+            test: /\.(css|png|jpg|php)$/,
+        }),
         new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['js/**/*', 'scss/**/*'] })
     ]
 };
