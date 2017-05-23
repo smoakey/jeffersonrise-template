@@ -1,3 +1,23 @@
+.news-event-list-filtered {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: 200;
+    color: gray;
+
+    a {
+        display: inline-block;
+        color: $jeffrise-red;
+        padding: 0 5px;
+
+        &:hover {
+            color: white;
+            background-color: $jeffrise-red;
+        }
+    }
+}
+
 .news-event-item {
     + .news-event-item {
         border-top: 1px solid #eee;
@@ -12,8 +32,6 @@
     }
 
     .news-event-title {
-        margin-bottom: 0;
-
         a {
             color: #555;
 
@@ -29,6 +47,15 @@
             }
         }
     }
+}
+
+.news-event-title {
+    margin-bottom: 0;
+}
+
+.news-event-date {
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
 .news-event-preview {

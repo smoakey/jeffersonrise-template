@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "fontawesome": "^4.7.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "pikaday": "git+https://github.com/dbushell/Pikaday.git "
   }
 }

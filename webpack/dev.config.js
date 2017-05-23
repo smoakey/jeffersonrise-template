@@ -51,7 +51,7 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                include: srcDir,
+                // include: srcDir,
                 loaders: ['style-loader', 'css-loader?sourceMap', 'resolve-url-loader', 'sass-loader?sourceMap']
             },
             {
