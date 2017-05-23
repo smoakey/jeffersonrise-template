@@ -24,18 +24,18 @@ module.exports = {
     cache: true,
     devtool: 'source-map',
     stats: 'errors-only',
-    entry: srcDir + '/js/index.js',
+    entry: srcDir + '/index.js',
     output: {
         path: buildDir,
-        filename: 'bundle.js',
-        publicPath: serverConfig.url()
+        filename: 'bundle.min.js',
+        publicPath: serverConfig.url() + 'dist/'
     },
     devServer: {
         hot: true,
         stats: 'errors-only',
         clientLogLevel: 'none',
         contentBase: buildDir,
-        publicPath: serverConfig.url(),
+        publicPath: serverConfig.url() + 'dist/',
         https: serverConfig.scheme == 'https',
         port: serverConfig.port,
         headers: {
@@ -51,7 +51,7 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                // include: srcDir,
+                include: srcDir,
                 loaders: ['style-loader', 'css-loader?sourceMap', 'resolve-url-loader', 'sass-loader?sourceMap']
             },
             {
