@@ -3,7 +3,6 @@ import _ from 'lodash';
 const $ = jQuery;
 
 $(document).ready(init);
-console.log('hello');
 
 function init() {
     $(window).on('resize', _.debounce(setMainMargin, 500)).trigger('resize');

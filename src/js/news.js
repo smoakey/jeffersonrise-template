@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Pikaday from 'pikaday';
+import Tippy from 'tippy.js';
 
 const $ = jQuery;
 var newsDates = [];
@@ -54,7 +55,7 @@ function renderDatesInCalendar(dates) {
 
         // add today tooltip
         if ($cell.hasClass('is-today')) {
-            $button.attr('title', 'Today');
+            $button.addClass('tooltip').attr('title', 'Today');
         }
 
         // fix zero indexed months in pikaday
@@ -75,11 +76,19 @@ function renderDatesInCalendar(dates) {
             var title = `${eventsForCellDate.length} Event(s): ${eventsForCellDate.join(', ')}`;
 
             $cell.addClass('has-event');
-            $button.attr('title', title);
+            $button.addClass('tooltip').attr('title', title);
+            setTimeout(createTooltips, 1000);
         }
     });
 }
 
 function searchNewsPostsByDate(date) {
     window.location.href = `${window.location.origin}/news/?date=${date}`;
+}
+
+function createTooltips() {
+    new Tippy('.tooltip', {
+        arrow: true,
+        appendTo: document.body
+    });
 }
