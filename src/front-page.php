@@ -51,11 +51,13 @@
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
                             <div class="four columns">
                                 <div class="news-item">
-                                    <img src="<?php the_field('news_image'); ?>" />
+                                    <div class="news-image" style="background-image: url('<?php the_field('news_image'); ?>');"></div>
                                     <h5 class="no-margin news-title">
                                         <a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a>
                                     </h5>
-                                    <p class="news-date"><?php the_field('news_date'); ?></p>
+                                    <p class="news-date">
+                                        <?php echo date('M d, Y', strtotime(get_field('news_date', false, false))); ?>
+                                    </p>
                                 </div>
                             </div>
                         <?php endwhile; ?>

@@ -30,7 +30,7 @@
                 <?php if ($hasSidebar) : ?>
                     <div class="four columns">
                         <?php if (get_field('news_image')) : ?>
-                            <div class="news-event-image">
+                            <div class="news-event-image text-center">
                                 <img src="<?php the_field('news_image'); ?>" />
                             </div>
                         <?php endif; ?>

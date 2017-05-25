@@ -1,0 +1,50 @@
+.team-member-photo {
+    position: relative;
+    border: 10px solid #eee;
+    line-height: 0;
+}
+
+.team-members {
+    .row {
+        + .row {
+            margin-top: 20px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+    }
+    
+    a {
+        display: block;
+        box-sizing: border-box;
+
+        &:hover {
+            .team-member-photo {
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0,0,0,0.5);
+                }
+
+                &:after {
+                    content: 'View Team Member';
+                    color: white;
+                    padding-top: 50%;
+                    background: transparent;
+                    text-transform: uppercase;
+                    font-size: 1.2em;
+                }
+            }
+        }
+
+        .team-member-name {
+            color: gray;
+            margin-top: 10px;
+        }
+    }
+
+}

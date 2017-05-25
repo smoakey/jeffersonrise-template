@@ -15,16 +15,15 @@ $bp-smaller-than-desktop   : "max-width: 1000px" !default;
 $bp-smaller-than-desktophd : "max-width: 1200px" !default;
 
 // Colors
+$jeffrise-red: #bf2026 !default;
+$jeffrise-blue: #095c8c !default;
 $light-grey: #e1e1e1 !default;
 $dark-grey: #333 !default;
 $primary-color: #33c3f0 !default;
 $secondary-color: lighten($dark-grey, 13.5%) !default;
 $border-color: #bbb !default;
-$link-color: #1eaedb !default;
+$link-color: $jeffrise-red !default;
 $font-color: #555 !default;
-
-$jeffrise-red: #bf2026 !default;
-$jeffrise-blue: #095c8c !default;
 
 // Typography
 $font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !default;

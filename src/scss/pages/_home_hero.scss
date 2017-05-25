@@ -1,0 +1,47 @@
+.home {
+    .hero {
+        box-sizing: border-box;
+        height: 100vh;
+        padding: 250px 100px 0 100px;
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.60),
+            rgba(0, 0, 0, 0.60)
+        ), url('../../img/hero.png') no-repeat 50% 0;
+        background-size: cover;
+
+        h1,
+        h2 {
+            color: white;
+            font-size: 60px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 100;
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+    }
+}
+
+@media (#{$bp-smaller-than-tablet}) {
+    .hero {
+        padding: 150px 20px 100px 20px;
+        height: auto;
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+    }
+}

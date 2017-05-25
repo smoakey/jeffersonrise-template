@@ -1,0 +1,24 @@
+.error404 {
+
+    .page-content {
+        height: 100vh;
+        padding: 50px 150px;
+        background: url('../../img/not-found.png') no-repeat 90% 50px;
+    }
+
+    .title {
+        font-size: 150px;
+        font-weight: 500;
+    }
+    .description {
+        font-size: 24px;
+        font-weight: 200;
+        margin-bottom: 20px;
+    }
+    .error-code {
+        margin-bottom: 20px;
+    }
+    p {
+        margin: 0;
+    }
+}

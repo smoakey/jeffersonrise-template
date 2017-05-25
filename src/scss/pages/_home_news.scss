@@ -1,0 +1,22 @@
+.home {
+    .news-item {
+        .news-title a {
+            color: gray;
+            text-decoration: none;
+
+            &:hover {
+                color: $jeffrise-red;
+            }
+        }
+
+        .news-image {
+            height: 200px;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        .news-date {
+            text-transform: uppercase;
+        }
+    }
+}

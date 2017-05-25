@@ -1,28 +1,39 @@
-.home .site-header:not(.scrolled) {
-    background: inherit;
-    border-bottom-color: transparent;
+@import "home_hero";
+@import "home_call_to_action";
+@import "home_our_model";
+@import "home_news";
 
-    h1 a {
-        background-image: url('../../img/logo-white.png');
-    }
+.home {
+    .site-header:not(.scrolled) {
+        background: transparent;
+        border-bottom-color: transparent;
 
-    .menu a {
-        color: white;
-    }
-
-    .sub-menu {
-        background: white;
-
-        &:before {
-            border-bottom-color: white;
+        h1 a {
+            background-image: url('../../img/logo-white.png');
         }
 
-        a {
-            color: gray;
+        .menu a {
+            color: white;
+        }
 
-            &:hover {
-                color: white;
+        .sub-menu {
+            background: white;
+
+            &:before {
+                border-bottom-color: white;
+            }
+
+            a {
+                color: gray;
+
+                &:hover {
+                    color: white;
+                }
             }
         }
+    }
+
+    main {
+        padding-top: 0;
     }
 }

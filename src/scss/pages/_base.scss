@@ -1,13 +1,38 @@
-.page-header {
-    padding: 40px 0;
-    color: white;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.60),
-        rgba(0, 0, 0, 0.60)
-    ), url('../../img/hero.png') no-repeat 50% 35%;
-    background-size: cover;
+main {
+    background-color: white;
+    padding-top: 118px;
+
+    .page-header {
+        padding: 40px 0;
+        color: white;
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.70),
+            rgba(0, 0, 0, 0.70)
+        ), url('../../img/hero.png') no-repeat 50% 35%;
+        background-size: cover;
+
+        a {
+            margin-top: 7px;
+
+            + a {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .page-content {
+        padding: 40px 0;
+    }
 }
 
-.page-content {
-    padding: 40px 0;
+@media (#{$bp-smaller-than-desktop}) {
+    main {
+        padding-top: 98px;
+    }
+}
+
+@media (#{$bp-smaller-than-tablet}) {
+    main {
+        padding-top: 78px;
+    }
 }

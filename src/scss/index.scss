@@ -6,8 +6,6 @@
 @import "base/utils";
 @import "base/typography";
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
-
 /* Modules */
 @import "modules/grid";
 @import "modules/buttons";
@@ -23,16 +21,15 @@
 /* Layout */
 @import "layout/header";
 @import "layout/menu";
-@import "layout/hero";
-@import "layout/call_to_action";
-@import "layout/our_model";
-@import "layout/news";
 @import "layout/footer";
 
 /* Pages */
 @import "pages/base";
 @import "pages/home";
 @import "pages/news";
+@import "pages/team";
+@import "pages/404";
 
-
+/* Vendor */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 @import "../../node_modules/tippy.js/dist/tippy.css";
