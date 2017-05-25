@@ -105,13 +105,28 @@
         }
         .has-event {
             button {
-                color: $jeffrise-red;
-                font-weight: 600;
+                position: relative;
                 pointer-events: inherit;
+
+                &:after {
+                    content: '·';
+                    font-weight: 900;
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    color: $jeffrise-red;
+                    font-size: 24px;
+                }
 
                 &:hover {
                     background-color: $jeffrise-red;
                     color: white;
+
+                    &:after {
+                        color: white;
+                    }
                 }
             }
         }
