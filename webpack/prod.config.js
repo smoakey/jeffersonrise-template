@@ -9,6 +9,8 @@ const theme = 'jeffersonrise';
 
 // define src & dist directories
 const srcDir = path.resolve(__dirname, '../src/');
+const assetsDir = path.resolve(__dirname, '../src/assets/');
+const beagleDir = path.resolve(__dirname, '../src/assets/portal/beagle/');
 const buildDir = path.resolve(__dirname, '../wordpress/wp-content/themes/' + theme);
 
 // base prod webpack config
@@ -17,26 +19,28 @@ module.exports = {
     devtool: 'source-map',
     stats: 'errors-only',
     entry: {
-        web: srcDir + '/web/index.js',
-        portal: srcDir + '/portal/index.js'
+        web: assetsDir + '/web/index.js',
+        portal: assetsDir + '/portal/index.js'
     },
     output: {
         path: buildDir + '/dist/',
         filename: '[name].min.js',
     },
     module : {
-        noParse: [
-            /beagle\/.*.js/
-        ],
         loaders : [
             {
                 test: /\.js$/,
-                include: srcDir,
+                include: beagleDir,
+                loaders: ['script-loader']
+            },
+            {
+                test: /\.js$/,
+                include: assetsDir,
                 loaders: ['babel-loader?cacheDirectory=true']
             },
             {
                 test: /\.(scss|css)$/,
-                include: srcDir,
+                include: assetsDir,
                 loaders: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -48,7 +52,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|woff|woff2|ttf)$/,
-                include: srcDir,
+                include: assetsDir,
                 loaders: ['file-loader']
             }
         ]
@@ -64,6 +68,6 @@ module.exports = {
             test: /\.(css|png|jpg|php)$/,
             log: false,
         }),
-        new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['js/**/*', 'scss/**/*'] })
+        new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['assets/**/*'] })
     ]
 };
