@@ -1,0 +1,49 @@
+.site-header,
+.site-header.scrolled {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 20px 0;
+    transition: all 0.3s ease-in-out;
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+
+    h1 {
+        margin: 0;
+
+        a {
+            display: block;
+            width: 200px;
+            height: 77px;
+            background: url('../../../common/img/logo-gray.png') no-repeat 0 0;
+            background-size: 100%;
+            text-indent: -9999px;
+        }
+    }
+}
+
+@media (#{$bp-smaller-than-desktop}) {
+    .site-header,
+    .site-header.scrolled {
+        h1 {
+            a {
+                width: 150px;
+                height: 57px;
+            }
+        }
+    }
+}
+
+@media (#{$bp-smaller-than-tablet}) {
+    .site-header,
+    .site-header.scrolled {
+        padding: 10px 0;
+        h1 {
+            a {
+                width: 150px;
+                height: 57px;
+            }
+        }
+    }
+}

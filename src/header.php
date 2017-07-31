@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?>, <?php bloginfo('description'); ?></title>
         <?php wp_head(); ?>
     </head>
@@ -14,5 +14,8 @@
                     <i class="fa fa-bars" aria-hidden="true"></i> Menu
                 </a>
                 <?php wp_nav_menu(['menu' => 'Main']) ?>
+                <nav class="portal-nav">
+                    <ul><li><a href="/portal">Student Portal <i class="fa fa-sign-in" aria-hidden="true"></i></a></li></ul>
+                </nav>
             </div>
         </header>

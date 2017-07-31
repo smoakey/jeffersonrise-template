@@ -16,7 +16,9 @@ services:
 
   mysql:
     image: mariadb
-    ports: 
+    volumes:
+      - jeffrise_data:/var/lib/mysql
+    ports:
       - 9001:3306
     environment:
       MYSQL_ROOT_PASSWORD: example
@@ -25,4 +27,4 @@ services:
       MYSQL_PASSWORD: wordpress
 
 volumes:
-  db_data: 
+  jeffrise_data:

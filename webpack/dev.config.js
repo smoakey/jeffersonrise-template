@@ -7,6 +7,8 @@ const theme = 'jeffersonrise';
 
 // define src & dist directories
 const srcDir = path.resolve(__dirname, '../src/');
+const assetsDir = path.resolve(__dirname, '../src/assets/');
+const beagleDir = path.resolve(__dirname, '../src/assets/portal/beagle/');
 const buildDir = path.resolve(__dirname, '../wordpress/wp-content/themes/' + theme);
 
 // dev server config
@@ -24,10 +26,13 @@ module.exports = {
     cache: true,
     devtool: 'source-map',
     stats: 'errors-only',
-    entry: srcDir + '/index.js',
+    entry: {
+        web: assetsDir + '/web/index.js',
+        portal: assetsDir + '/portal/index.js'
+    },
     output: {
         path: buildDir,
-        filename: 'bundle.min.js',
+        filename: '[name].min.js',
         publicPath: serverConfig.url() + 'dist/'
     },
     devServer: {
@@ -46,27 +51,36 @@ module.exports = {
         loaders : [
             {
                 test: /\.js$/,
-                include: srcDir,
+                include: beagleDir,
+                loaders: ['script-loader']
+            },
+            {
+                test: /\index.js|js\/*.js/,
+                include: assetsDir,
                 loaders: ['babel-loader?cacheDirectory=true']
             },
             {
                 test: /\.(scss|css)$/,
-                include: srcDir,
+                include: assetsDir,
                 loaders: ['style-loader', 'css-loader?sourceMap', 'resolve-url-loader', 'sass-loader?sourceMap']
             },
             {
-                test: /\.(png|jpg|gif|svg|eot|woff|ttf)$/,
-                include: srcDir,
+                test: /\.(png|jpg|gif|svg|eot|woff|ttf|woff2)$/,
+                include: assetsDir,
                 loaders: ['url-loader']
             }
         ]
     },
     plugins: [
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     jQuery: 'jquery'
+        // }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new WriteFilePlugin({
             test: /\.(css|png|jpg|php)$/,
         }),
-        new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['js/**/*', 'scss/**/*'] })
+        new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['assets/**/*'] })
     ]
 };

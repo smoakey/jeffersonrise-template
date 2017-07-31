@@ -1,0 +1,68 @@
+@import "../beagle/lib/material-design-icons/css/material-design-iconic-font.min.css";
+@import "../beagle/lib/perfect-scrollbar/css/perfect-scrollbar.min.css";
+
+@import "../beagle/css/style.min.css";
+
+@import "../../common/scss/variables";
+
+@import "./login";
+
+html {
+    margin: 0 !important;
+}
+#wpadminbar {
+    bottom: 0;
+    top: auto;
+    display: none;
+}
+
+.be-top-header .navbar-header .navbar-brand {
+    background-image: url('../../common/img/logo-gray.png');
+    background-size: 120px;
+    width: 200px;
+}
+
+.be-left-sidebar .sidebar-elements>li.active>a,
+.be-left-sidebar .sidebar-elements>li.active>a>span {
+    color: $jeffrise-red;
+}
+
+.be-user-nav>li.dropdown .dropdown-menu .user-info {
+    background: $jeffrise-red;
+}
+
+.be-top-header .be-user-nav>li.dropdown .dropdown-menu:after {
+    border-bottom-color: $jeffrise-red;
+}
+
+@media (max-width: 767px) {
+    .be-top-header .be-right-navbar {
+        background: $jeffrise-red;
+        border-bottom-color: $jeffrise-red;
+    }
+}
+
+
+.student-app {
+    border-color: #ddd;
+    text-align: center;
+    padding: 20px 0;
+
+    &:hover {
+        border-color: $jeffrise-red;
+    }
+
+    strong {
+        display: block;
+        color: #444;
+        margin-top: 10px;
+    }
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.margin-top-100 {
+    margin-top: 100px
+}

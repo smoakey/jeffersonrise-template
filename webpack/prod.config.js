@@ -15,15 +15,19 @@ const buildDir = path.resolve(__dirname, '../wordpress/wp-content/themes/' + the
 module.exports = {
     cache: true,
     devtool: 'source-map',
-    stats: 'none',
+    stats: 'errors-only',
     entry: {
-        bundle: srcDir + '/index.js'
+        web: srcDir + '/web/index.js',
+        portal: srcDir + '/portal/index.js'
     },
     output: {
         path: buildDir + '/dist/',
         filename: '[name].min.js',
     },
     module : {
+        noParse: [
+            /beagle\/.*.js/
+        ],
         loaders : [
             {
                 test: /\.js$/,
@@ -43,7 +47,7 @@ module.exports = {
                 })
             },
             {
-                test: /\.(png|jpg|gif|svg|eot|woff|ttf)$/,
+                test: /\.(png|jpg|gif|svg|eot|woff|woff2|ttf)$/,
                 include: srcDir,
                 loaders: ['file-loader']
             }

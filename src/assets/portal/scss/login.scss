@@ -1,0 +1,74 @@
+.login h1 a {
+    background-image: url('../../common/img/logo-gray.png');
+    background-size: 200px;
+    width: 200px;
+    height: 80px;
+}
+
+.login form {
+    border-top: 2px solid $jeffrise-red;
+    padding: 26px;
+}
+
+form#loginform {
+    .galogin-or {
+        font-size: 14px;
+    }
+
+    p.galogin {
+        padding: 0;
+        height: auto;
+        box-shadow: none;
+
+        a {
+            color: #777;
+            font-weight: 400;
+            display: block;
+            background: #FFF url('../../common/img/google.png') 5% 50% no-repeat;
+            background-size: 35px auto;
+            box-shadow: none;
+            height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            padding: 10px 0 0 0;
+        }
+    }
+
+    label {
+        display: block;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 12px;
+        box-shadow: inset 0 1px #eee;
+
+        &:focus {
+            border-color: $jeffrise-red;
+        }
+    }
+}
+
+#nav,
+.forgetmenot {
+    display: none;
+}
+
+#login form p.submit {
+    display: block;
+
+    #wp-submit {
+        display: block;
+        float: none;
+        color: #FFF;
+        background: $jeffrise-red;
+        box-shadow: none;
+        border: none;
+        text-shadow: none;
+        border-radius: 0;
+        width: 100%;
+        height: auto;
+    }
+}

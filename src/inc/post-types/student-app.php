@@ -1,4 +1,6 @@
 <?php
+define('studentapp_posts_per_page', 100);
+
 add_action('init', 'create_student_app_post_type');
 add_filter('manage_student_app_posts_columns', 'add_student_app_post_column');
 add_action('manage_student_app_posts_custom_column', 'add_student_app_post_column_content', 10, 2);
