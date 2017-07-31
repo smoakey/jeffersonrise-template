@@ -11,6 +11,9 @@ $role = ucwords(current($user_data->roles));
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?>, <?php bloginfo('description'); ?></title>
         <?php wp_head(); ?>
+        <style>
+            html { margin-top: 0 !important; }
+        </style>
     </head>
     <body>
         <div class="be-wrapper">

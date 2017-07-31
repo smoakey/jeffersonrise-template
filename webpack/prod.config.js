@@ -36,6 +36,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: assetsDir,
+                exclude: beagleDir,
                 loaders: ['babel-loader?cacheDirectory=true']
             },
             {
