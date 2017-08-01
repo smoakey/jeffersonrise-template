@@ -1,6 +1,5 @@
 <?php
 add_action('template_redirect', 'portal_force_login');
-// add_filter('page_template', 'portal_use_portal_template');
 add_filter('gal_user_new_role', 'portal_save_google_groups', 10, 5);
 add_action('gal_user_loggedin', 'portal_save_google_photo', 10, 5);
 
@@ -14,20 +13,30 @@ function portal_force_login() {
 }
 
 function portal_save_google_photo( $wp_user, $google_userinfo, $wp_userisnew, $google_client, $google_oauth2service ) {
-    update_user_meta( $wp_user->ID, 'user_avatar', $google_userinfo->picture );
+    update_user_meta($wp_user->ID, 'user_avatar', $google_userinfo->picture);
 }
 
 function portal_save_google_groups($want_role, $user, $blogid, $is_user_member, $in_groups) {
+    global $wpdb;
 
-    // echo '<pre>';
-    // print_r($user);
-    // echo '</pre>';
-    // echo '<pre>';
-    // print_r($in_groups);
-    // echo '</pre>';
-    //
-    // die();
+    $userId = $user->data->ID;
+    $email = $user->data->user_email;
 
+    // remove their email which comes back as a group
+    if (isset($in_groups[$email])) {
+        unset($in_groups[$email]);
+    }
+
+    // delete old groups
+    $wpdb->query('DELETE FROM ' . $wpdb->prefix . 'user_googlegroups WHERE userid = ' . $userId);
+
+    // insert user groups
+    foreach ($in_groups as $group => $value) {
+        $wpdb->insert($wpdb->prefix . 'user_googlegroups', array(
+            'userid' => $userId,
+            'group' => $group
+        ));
+    }
 
    return $want_role;
 }
