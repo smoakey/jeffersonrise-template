@@ -1,4 +1,4 @@
-<?php $pdf = get_option('portal_bus_stop_pdf'); ?>
+<?php $pdf = get_option('portal_bus_stop_pdf_url'); ?>
 <div class="panel panel-flat">
     <div class="panel-heading">
         Bus Stop Info

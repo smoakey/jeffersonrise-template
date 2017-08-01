@@ -10,17 +10,18 @@ if (isset($_POST['submit'])) {
         $upload_overrides = array('test_form' => false);
         $uploaded = wp_handle_upload($upload, $upload_overrides);
 
-        // if uploaded, update site option
+        // if uploaded, update site options
         if ($uploaded && !isset($uploaded['error'])) {
-            update_option($setting, $uploaded['url'], true);
+            update_option($setting . '_url', $uploaded['url'], true);
+            update_option($setting . '_file', $uploaded['file'], true);
         }
     }
 }
 
 //get current files
-$bus_stop_file = get_option('portal_bus_stop_pdf');
+$bus_stop_file = get_option('portal_bus_stop_pdf_url');
 $bus_stop_file_name = $bus_stop_file ? array_pop(explode('/', $bus_stop_file)) : 'None';
-$meal_time_file = get_option('portal_meal_time_csv');
+$meal_time_file = get_option('portal_meal_time_csv_url');
 $meal_time_file_name = $meal_time_file ? array_pop(explode('/', $meal_time_file)) : 'None';
 ?>
 
