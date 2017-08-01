@@ -8,4 +8,10 @@ function register_portal_menu() {
 
 function add_admin_menu() {
     add_menu_page('Portal', 'Portal', 'manage_options', 'portal', '', 'dashicons-screenoptions', 4);
+    add_submenu_page('portal', 'Settings', 'Settings', 'manage_options', 'settings', 'render_portal_settings' );
+}
+
+
+function render_portal_settings() {
+    include 'portal-settings.php';
 }
