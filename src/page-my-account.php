@@ -2,7 +2,7 @@
 
         <div class="be-content">
             <div class="main-content container-fluid">
-                <?php get_template_part('partials/portal', get_current_user_role()); ?>
+                <?php echo apply_filters('the_content', $post->post_content); ?>
             </div>
         </div>
 

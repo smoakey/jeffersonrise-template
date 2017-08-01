@@ -14,3 +14,15 @@ require_once __DIR__ . '/inc/post-types/team.php';
 // Portal Related functionality
 require_once __DIR__ . '/inc/login.php';
 require_once __DIR__ . '/inc/portal.php';
+
+function get_current_user_role() {
+    $current_user = wp_get_current_user();
+    $user_data = get_userdata($current_user->ID);
+    return current($user_data->roles);
+}
+
+function get_current_page_url() {
+    global $wp;
+    $current_url = home_url(add_query_arg(array(),$wp->request));
+    return str_replace(get_site_url(), '', $current_url);
+}

@@ -8,7 +8,8 @@ function add_theme_scripts() {
     $base = 'http://localhost:3001';
     $url = get_permalink($post);
 
-    if (strrpos($url, 'portal') === false) {
+    if (strrpos($url, 'portal') === false
+        && strrpos($url, 'product') === false) {
         $bundle = 'web';
         wp_enqueue_script('fontawesome', 'https://use.fontawesome.com/9933c8a108.js', [], 1.0, false);
     }

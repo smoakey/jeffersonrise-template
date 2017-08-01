@@ -39,6 +39,7 @@ $role = ucwords(current($user_data->roles));
                                     <?php if ($role == 'Administrator') : ?>
                                         <li><a href="/wp-admin"><span class="icon mdi mdi-settings"></span> Wordpress Admin</a></li>
                                     <?php endif; ?>
+                                    <!-- <li><a href="/portal/store/my-account"><span class="icon mdi mdi-user"></span> My Account</a></li> -->
                                     <li><a href="<?php echo wp_logout_url(home_url()); ?>">
                                         <span class="icon mdi mdi-power"></span> Logout</a>
                                     </li>
@@ -46,6 +47,14 @@ $role = ucwords(current($user_data->roles));
                             </li>
                         </ul>
                         <div class="page-title"><span><?php echo $role; ?> Dashboard</span></div>
+                        <!-- <ul class="nav navbar-nav navbar-right be-icons-nav">
+                            <li class="dropdown">
+                                <a href="/portal/store/cart">
+                                    <span class="icon mdi mdi-shopping-cart"></span>
+                                </a>
+                            </li>
+                        </ul> -->
                     </div>
                 </div>
             </nav>
+            <?php get_template_part('partials/portal', 'menu'); ?>

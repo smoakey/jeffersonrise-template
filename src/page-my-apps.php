@@ -8,8 +8,6 @@ $wp_query = new WP_Query([
 
 <?php get_header('portal'); ?>
 
-        <?php get_template_part('partials/portal', 'menu'); ?>
-
         <div class="be-content">
             <div class="main-content container-fluid">
 

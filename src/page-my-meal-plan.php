@@ -18,8 +18,6 @@ if (isset($_POST['submit'])) {
 
 <?php get_header('portal'); ?>
 
-        <?php get_template_part('partials/portal', 'menu'); ?>
-
         <div class="be-content">
             <div class="main-content container-fluid">
 
@@ -34,7 +32,7 @@ if (isset($_POST['submit'])) {
                                 <br />You can register by <a target="_blank" href="https://www.mymealtime.com/Register.aspx">clicking here.</a>
                             </div>
                         </div>
-                    <?php elseif ($match == false) : ?>
+                    <?php elseif ($match === false) : ?>
                         <div role="alert" class="alert alert-warning alert-icon alert-icon-border">
                             <div class="icon"><span class="mdi mdi-alert-triangle"></span></div>
                             <div class="message">
