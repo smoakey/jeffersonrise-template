@@ -40,3 +40,9 @@ function portal_save_google_groups($want_role, $user, $blogid, $is_user_member, 
 
    return $want_role;
 }
+
+function get_current_user_role() {
+    $current_user = wp_get_current_user();
+    $user_data = get_userdata($current_user->ID);
+    return current($user_data->roles);
+}

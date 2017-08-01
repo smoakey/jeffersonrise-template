@@ -7,7 +7,7 @@ $wp_query = new WP_Query([
 ?>
 
 <div class="panel panel-flat">
-    <div class="panel-heading">Recent Apps <a href="/portal/my-apps"><small>View All</small></a></div>
+    <div class="panel-heading">Popular Apps <a href="/portal/my-apps"><small>View All</small></a></div>
     <div class="panel-body">
         <div class="row">
             <?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
