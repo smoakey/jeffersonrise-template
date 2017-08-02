@@ -14,6 +14,11 @@ $linkGroups = [
             'name' => 'My Apps'
         ],
         [
+            'icon' => 'file-text',
+            'url' => '/portal/homework',
+            'name' => 'Homework'
+        ],
+        [
             'icon' => 'local-dining',
             'url' => '/portal/my-meal-plan',
             'name' => 'My Meal Plan'

@@ -34,7 +34,7 @@ function portal_save_google_groups($want_role, $user, $blogid, $is_user_member, 
     foreach ($in_groups as $group => $value) {
         $wpdb->insert($wpdb->prefix . 'user_googlegroups', array(
             'userid' => $userId,
-            'group' => $group
+            'group_name' => $group
         ));
     }
 

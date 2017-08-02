@@ -59,8 +59,15 @@ html {
     }
 }
 
-.panel .student-app {
-    margin-bottom: 0;
+.teacher-dashboard .topapps {
+    div[class*="col-"] {
+        width: 100%;
+    }
+}
+
+th.primary,
+td.primary {
+    background-color: $jeffrise-blue !important;
 }
 
 .margin-top-50 {

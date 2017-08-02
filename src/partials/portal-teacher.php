@@ -1,17 +1,8 @@
-<div class="row">
+<div class="row teacher-dashboard">
     <div class="col-md-8">
-        <?php get_template_part('partials/portal', 'hwform'); ?>
+        <?php get_template_part('partials/portal', 'homework-form'); ?>
     </div>
     <div class="col-md-4">
-
+        <?php get_template_part('partials/portal', 'topapps'); ?>
     </div>
 </div>
-
-<!-- <div class="row">
-    <div class="col-md-4">
-
-    </div>
-    <div class="col-md-4">
-        <?php // get_template_part('partials/portal', 'recentapps'); ?>
-    </div>
-</div> -->

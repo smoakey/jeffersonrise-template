@@ -11,7 +11,6 @@ function add_admin_menu() {
     add_submenu_page('portal', 'Settings', 'Settings', 'manage_options', 'settings', 'render_portal_settings' );
 }
 
-
 function render_portal_settings() {
     include 'portal-settings.php';
 }
