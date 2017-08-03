@@ -19,6 +19,7 @@ $wp_query = new WP_Query([
                                     <img src="<?php echo get_field('icon'); ?>" width="100" />
                                 </a>
                                 <strong><?php the_title(); ?></strong>
+                                <small><?php echo get_field('caption') ?: '&nbsp;'; ?></small>
                             </div>
                         </div>
                     <?php endwhile; ?>
