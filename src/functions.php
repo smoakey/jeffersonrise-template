@@ -24,8 +24,19 @@ function get_current_user_role() {
 
 function get_current_page_url() {
     global $wp;
-    $current_url = home_url(add_query_arg(array(),$wp->request));
-    return str_replace(get_site_url(), '', $current_url);
+    return home_url(add_query_arg(array(),$wp->request));
+}
+
+function get_portal_menu() {
+    $host = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_ADDR'];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $host . '/wp-json/wp-api-menus/v2/menus/17/');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $data = curl_exec($ch);
+    curl_close($ch);
+
+    return $data ? json_decode($data, true) : [];
 }
 
 function getMondays() {

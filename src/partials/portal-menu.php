@@ -1,42 +1,7 @@
 <?php
+$menu = get_portal_menu();
 $current_url = get_current_page_url();
-
-$linkGroups = [
-    'Menu' => [
-        [
-            'icon' => 'home',
-            'url' => '/portal',
-            'name' => 'Dashboard'
-        ],
-        [
-            'icon' => 'apps',
-            'url' => '/portal/my-apps',
-            'name' => 'My Apps'
-        ],
-        [
-            'icon' => 'file-text',
-            'url' => '/portal/homework',
-            'name' => 'Homework'
-        ],
-        [
-            'icon' => 'local-dining',
-            'url' => '/portal/my-meal-plan',
-            'name' => 'My Meal Plan'
-        ]
-    ],
-    // 'Store' => [
-    //     [
-    //         'icon' => 'local-wc',
-    //         'url' => '/portal/store/category/uniforms/',
-    //         'name' => 'Uniforms'
-    //     ],
-    //     [
-    //         'icon' => 'camera',
-    //         'url' => '/portal/store/category/photos/',
-    //         'name' => 'Photos'
-    //     ]
-    // ]
-];
+$linkGroups['Menu'] = $menu['items'];
 ?>
 
 <div class="be-left-sidebar">
@@ -50,11 +15,40 @@ $linkGroups = [
                         <?php foreach ($linkGroups as $group => $links) : ?>
                             <li class="divider"><?php echo $group; ?></li>
                             <?php foreach ($links as $link) : ?>
-                                <li class="<?php echo $current_url == $link['url'] ? 'active' : ''; ?>">
+                                <?php
+                                    $classes = [];
+                                    if ($current_url == rtrim($link['url'], '/')) {
+                                        $classes[] = 'active';
+                                    }
+                                    if (isset($link['children'])) {
+                                        $classes[] = 'parent';
+                                    }
+                                ?>
+                                <li class="<?php echo implode(' ', $classes); ?>">
                                     <a href="<?php echo $link['url']; ?>">
-                                        <i class="icon mdi mdi-<?php echo $link['icon']; ?>"></i>
-                                        <span><?php echo $link['name']; ?></span>
+                                        <i class="icon mdi mdi-<?php echo $link['classes']; ?>"></i>
+                                        <span><?php echo $link['title']; ?></span>
                                     </a>
+                                    <?php if (isset($link['children'])) : ?>
+                                        <ul class="sub-menu">
+                                            <?php foreach ($link['children'] as $sub_link) : ?>
+                                                <?php
+                                                    $classes = [];
+                                                    if ($current_url == rtrim($sub_link['url'], '/')) {
+                                                        $classes[] = 'active';
+                                                    }
+                                                ?>
+                                                <li class="<?php echo implode(' ', $classes); ?>">
+                                                    <a href="<?php echo $sub_link['url']; ?>">
+                                                        <?php if ($sub_link['classes']) : ?>
+                                                            <i class="icon mdi mdi-<?php echo $sub_link['classes']; ?>"></i>
+                                                        <?php endif; ?>
+                                                        <span><?php echo $sub_link['title']; ?></span>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
                         <?php endforeach; ?>
