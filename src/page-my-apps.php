@@ -7,25 +7,21 @@ $wp_query = new WP_Query([
 ?>
 
 <?php get_header('portal'); ?>
-
-        <div class="be-content">
-            <div class="main-content container-fluid">
-
-                <div class="row">
-                    <?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-                        <div class="col-md-3">
-                            <div class="panel panel-border student-app">
-                                <a href="<?php echo get_field('link'); ?>" target="_blank">
-                                    <img src="<?php echo get_field('icon'); ?>" width="100" />
-                                </a>
-                                <strong><?php the_title(); ?></strong>
-                                <small><?php echo get_field('caption') ?: '&nbsp;'; ?></small>
-                            </div>
+    <div class="be-content">
+        <div class="main-content container-fluid">
+            <div class="row">
+                <?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+                    <div class="col-md-3">
+                        <div class="panel panel-border student-app">
+                            <a href="<?php echo get_field('link'); ?>" target="_blank">
+                                <img src="<?php echo get_field('icon'); ?>" width="100" />
+                            </a>
+                            <strong><?php the_title(); ?></strong>
+                            <small><?php echo get_field('caption') ?: '&nbsp;'; ?></small>
                         </div>
-                    <?php endwhile; ?>
-                </div>
-
+                    </div>
+                <?php endwhile; ?>
             </div>
         </div>
-
+    </div>
 <?php get_footer('portal'); ?>
