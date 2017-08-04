@@ -28,7 +28,9 @@ function get_current_page_url() {
 }
 
 function get_portal_menu() {
-    $host = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_ADDR'];
+    $scheme = $_SERVER['REQUEST_SCHEME'] ?: 'http';
+    $address = $_SERVER['SERVER_NAME'] == 'localhost' ? $_SERVER['SERVER_ADDR'] : $_SERVER['SERVER_NAME'];
+    $host = $scheme . '://' . $address;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $host . '/wp-json/wp-api-menus/v2/menus/17/');
