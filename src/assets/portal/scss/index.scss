@@ -70,15 +70,28 @@ td.primary {
     background-color: $jeffrise-blue !important;
 }
 
-.margin-top-50 {
-    margin-top: 50px;
+hr.or {
+    margin: 30px 0;
+    position: relative;
+
+    &:before {
+        content: 'or';
+        text-align: center;
+        text-transform: uppercase;
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        margin-left: -20px;
+        width: 40px;
+        background: #FFF;
+        padding: 2px 0;
+        font-size: 10px
+    }
 }
-.margin-top-60 {
-    margin-top: 60px;
-}
-.margin-top-70 {
-    margin-top: 70px;
-}
-.margin-top-100 {
-    margin-top: 100px
+
+.panel-table td {
+    a {
+        display: inline-block;
+        margin-top: 10px;
+    }
 }

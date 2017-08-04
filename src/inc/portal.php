@@ -3,6 +3,22 @@ add_action('template_redirect', 'portal_force_login');
 add_filter('gal_user_new_role', 'portal_save_google_groups', 10, 5);
 add_action('gal_user_loggedin', 'portal_save_google_photo', 10, 5);
 
+if(function_exists('acf_add_options_page')) {
+    acf_add_options_page([
+        'page_title' => 'Portal',
+        'menu_slug' => 'portal',
+        'icon_url' => 'dashicons-screenoptions',
+        'position' => '4.4',
+        'redirect' => false
+    ]);
+
+    acf_add_options_sub_page([
+        'page_title' => 'Meals',
+        'menu_slug' => 'meal',
+        'parent_slug' => 'portal'
+    ]);
+}
+
 function portal_force_login() {
     global $post;
     $url = get_permalink($post);

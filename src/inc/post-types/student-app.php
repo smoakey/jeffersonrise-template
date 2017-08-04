@@ -25,6 +25,7 @@ function create_student_app_post_type() {
 
 function add_student_app_post_column($columns) {
     unset($columns['date']);
+    $columns['caption'] = _('Caption');
     $columns['icon'] = _('Icon');
     $columns['link'] = _('Link');
     return $columns;
@@ -41,5 +42,7 @@ function add_student_app_post_column_content($column, $post_id) {
             $link = get_field($column, $post_id);
             echo '<a target="_blank" href="' . $link . '">' . $link . '</a>';
             break;
+        default:
+            echo get_field($column, $post_id);
     }
 }
