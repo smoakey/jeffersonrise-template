@@ -17,15 +17,11 @@
 
     <?php get_header('portal'); ?>
         <div class="be-content">
+            <div class="page-head">
+                <h2><?php the_title(); ?></h2>
+            </div>
             <div class="main-content container-fluid">
-                <div class="panel">
-                    <div class="panel-heading panel-heading-divider">
-                        <?php the_title(); ?>
-                    </div>
-                    <div class="panel-body">
-                        <?php echo apply_filters('the_content', $post->post_content); ?>
-                    </div>
-                </div>
+                <?php echo apply_filters('the_content', $post->post_content); ?>
             </div>
         </div>
     <?php get_footer('portal'); ?>
