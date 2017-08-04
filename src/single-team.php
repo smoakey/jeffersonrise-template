@@ -9,7 +9,7 @@
                 <a href="/careers" class="button button-solid-blue pull-right">
                     Open Positions
                 </a>
-                Team Members
+                Our Team Members
             </h2>
         </header>
         <div class="page-content container team-member">

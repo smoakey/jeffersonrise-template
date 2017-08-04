@@ -83,7 +83,7 @@ function renderDatesInCalendar(dates) {
 }
 
 function searchNewsPostsByDate(date) {
-    window.location.href = `${window.location.origin}/news/?date=${date}`;
+    window.location.href = `${window.location.origin}${window.location.pathname}?date=${date}`;
 }
 
 function createTooltips() {

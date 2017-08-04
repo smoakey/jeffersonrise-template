@@ -23,7 +23,10 @@ function create_news_post_type() {
         'show_in_rest' => true,
         'supports' => ['title'],
         'publicly_queryable' => true,
-        'menu_icon' => 'dashicons-calendar-alt'
+        'menu_icon' => 'dashicons-calendar-alt',
+        'rewrite' => [
+            'slug' => 'about-us/news'
+        ],
     ]);
 }
 

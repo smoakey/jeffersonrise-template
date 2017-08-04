@@ -13,7 +13,7 @@ $wp_query = new WP_Query([
                 <a href="/careers" class="button button-solid-blue pull-right">
                     Open Positions
                 </a>
-                Team
+                Our Team
             </h2>
         </header>
         <div class="page-content container team-members">

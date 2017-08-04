@@ -25,7 +25,10 @@ function create_team_post_type() {
         'show_in_rest' => true,
         'supports' => ['slug','page-attributes'],
         'publicly_queryable' => true,
-        'menu_icon' => 'dashicons-networking'
+        'menu_icon' => 'dashicons-networking',
+        'rewrite' => [
+            'slug' => 'about-us/our-team'
+        ],
     ]);
 }
 
