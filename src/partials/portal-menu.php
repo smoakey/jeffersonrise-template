@@ -26,7 +26,7 @@ $linkGroups['Menu'] = $menu['items'];
                                 ?>
                                 <li class="<?php echo implode(' ', $classes); ?>">
                                     <a href="<?php echo $link['url']; ?>">
-                                        <i class="icon mdi mdi-<?php echo $link['classes']; ?>"></i>
+                                        <i class="icon mdi mdi-<?php echo $link['classes'] ?: 'file'; ?>"></i>
                                         <span><?php echo $link['title']; ?></span>
                                     </a>
                                     <?php if (isset($link['children'])) : ?>
@@ -41,7 +41,7 @@ $linkGroups['Menu'] = $menu['items'];
                                                 <li class="<?php echo implode(' ', $classes); ?>">
                                                     <a href="<?php echo $sub_link['url']; ?>">
                                                         <?php if ($sub_link['classes']) : ?>
-                                                            <i class="icon mdi mdi-<?php echo $sub_link['classes']; ?>"></i>
+                                                            <i class="icon mdi mdi-<?php echo $sub_link['classes'] ?: 'file'; ?>"></i>
                                                         <?php endif; ?>
                                                         <span><?php echo $sub_link['title']; ?></span>
                                                     </a>

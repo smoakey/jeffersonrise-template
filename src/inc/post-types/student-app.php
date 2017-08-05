@@ -8,13 +8,13 @@ add_action('manage_student_app_posts_custom_column', 'add_student_app_post_colum
 function create_student_app_post_type() {
     register_post_type('student_app', [
         'labels' => [
-            'name' => __('Student Apps'),
-            'singular_name' => __('Student App'),
-            'add_new_item' => __('Add New Student App'),
-            'edit_item' => __('Edit Student App'),
-            'not_found' => __('No Student Apps Found'),
+            'name' => __('Apps'),
+            'singular_name' => __('App'),
+            'add_new_item' => __('Add New App'),
+            'edit_item' => __('Edit App'),
+            'not_found' => __('No Apps Found'),
         ],
-        'description' => 'Student Apps',
+        'description' => 'Apps',
         'public' => false,
         'has_archive' => false,
         'show_ui' => true,
