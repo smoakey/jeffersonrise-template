@@ -67,7 +67,8 @@ html {
 
 th.primary,
 td.primary {
-    background-color: $jeffrise-blue !important;
+    color: #404040 !important;
+    background-color: rgba(9, 92, 140, 0.1) !important;
 }
 
 hr.or {
@@ -93,5 +94,20 @@ hr.or {
     a {
         display: inline-block;
         margin-top: 10px;
+    }
+}
+
+.textarea-wrapper {
+    position: relative;
+
+    &:hover .btn.no-homework {
+        display: block;
+    }
+
+    .btn.no-homework {
+        position: absolute;
+        right: 6px;
+        top: 6px;
+        display: none;
     }
 }

@@ -6,3 +6,4 @@ import './beagle/js/main.min.js';
 import './beagle/lib/bootstrap/dist/js/bootstrap.min.js';
 
 import './js/login.js';
+import './js/homework.js';

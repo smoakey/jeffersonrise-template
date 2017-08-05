@@ -25,7 +25,7 @@ if (isset($_POST['submit_homework'])) {
                 <strong>Its Monday!</strong> Dont forget to enter your weekly homework.
             </div>
         </div> -->
-        <form method="post">
+        <form method="post" class="weekly_homework">
             <div class="row">
                 <div class="col-md-4">
                     <label>Select Grade Level</label>
@@ -69,7 +69,15 @@ if (isset($_POST['submit_homework'])) {
                     <textarea name="assessments" class="form-control" placeholder="Assessments" rows="1"></textarea>
                 </div>
             </div><br />
-            <button class="btn btn-space btn-primary btn-lg" name="submit_homework">Save</button>
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6 text-right">
+                    <button type="button" class="btn btn-space btn-link btn-lg no-homework">Enter no Homework</button>
+                    <button class="btn btn-space btn-primary btn-lg" name="submit_homework">Save</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
