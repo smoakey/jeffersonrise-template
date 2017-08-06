@@ -4,7 +4,7 @@ define('homework_posts_per_page', 100);
 add_action('init', 'create_homework_post_type');
 add_filter('manage_homework_posts_columns', 'add_homework_post_column');
 add_action('manage_homework_posts_custom_column', 'add_homework_post_column_content', 10, 2);
-add_filter( 'page_row_actions', 'homework_disable_quick_edit_and_view', 10, 2 );
+// add_filter( 'page_row_actions', 'homework_disable_quick_edit_and_view', 10, 2 );
 
 // add_action('pre_get_posts', 'set_news_posts_per_page');
 // add_action('pre_get_posts', 'set_news_posts_request_filters');

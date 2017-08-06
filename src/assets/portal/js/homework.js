@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
     function addNoHomeworkButton() {
         var $this = $(this);
 
-        $this.wrap('<div class="textarea-wrapper"></div>').parents('div').first().prepend('<button type="button" class="btn btn-default no-homework single pull-right">No Homework</button>');
+        $this.wrap('<div class="textarea-wrapper"></div>').parents('div').first().prepend('<button type="button" class="btn btn-sm btn-default no-homework single pull-right">No Homework</button>');
     }
 
     function enterNoHomework(event) {
