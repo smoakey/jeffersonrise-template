@@ -37,6 +37,10 @@ function add_announcements_post_column($columns) {
 function add_announcements_post_column_content($column, $post_id) {
     switch($column)
     {
+        case 'type':
+            $type = get_field('type', $post_id);
+            echo $type['label'];
+            break;
         case 'link':
             $link = get_field('link', $post_id);
             echo $link['url'];

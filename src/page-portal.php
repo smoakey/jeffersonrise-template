@@ -30,7 +30,7 @@ $wp_query = new WP_Query([
                             continue;
                         }
                     ?>
-                    <div role="alert" class="alert alert-<?php echo get_field('type'); ?> alert-icon alert-icon-border  alert-dismissible">
+                    <div role="alert" class="alert alert-<?php echo get_field('type')['value']; ?> alert-icon alert-icon-border  alert-dismissible">
                         <div class="icon"><span class="mdi mdi-check"></span></div>
                         <div class="message">
                             <button type="button" data-dismiss="alert" aria-label="Close" class="close" data-announcement-id="<?php echo get_the_ID(); ?>">
