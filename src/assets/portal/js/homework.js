@@ -8,6 +8,20 @@ jQuery(document).ready(function($) {
         $('form.weekly_homework')
             .find('textarea')
             .each(addNoHomeworkButton);
+
+        $('body').on('click', '.homework-delete', confirmHomeworkDeletion);
+
+        $('#homework-add-edit').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget);
+              var homework = button.data('homework');
+              var modal = $(this);
+
+              modal.find('.modal-title').text('Edit Homework');
+
+              $.each(homework, function (key, value) {
+                  modal.find('[name="' + key + '"]').val(value);
+              });
+        });
     }
 
     function addNoHomeworkButton() {
@@ -30,5 +44,11 @@ jQuery(document).ready(function($) {
         var $this = $(this);
 
         $this.val('—');
+    }
+
+    function confirmHomeworkDeletion(event) {
+        if (!confirm('Are you sure you want to delete the homework? The action is not reversible.')) {
+            event.preventDefault();
+        }
     }
 });

@@ -17,9 +17,14 @@ require_once __DIR__ . '/inc/post-types/announcements.php';
 require_once __DIR__ . '/inc/login.php';
 require_once __DIR__ . '/inc/portal.php';
 
-function get_current_user_role() {
+function get_current_user_role($allowOverride = false) {
     $current_user = wp_get_current_user();
     $user_data = get_userdata($current_user->ID);
+
+    if ($allowOverride && isset($_GET['student']) && $_GET['student'] == 1) {
+        return 'student';
+    }
+
     return current($user_data->roles);
 }
 
@@ -121,7 +126,7 @@ function saveHomework($data) {
     $current_user = wp_get_current_user();
     $userId = $current_user->ID;
 
-    return $wpdb->insert($wpdb->prefix . 'homework', array(
+    $wpData = [
         'userid' => $userId,
         'week' => $data['week'],
         'grade' => $data['grade'],
@@ -132,7 +137,19 @@ function saveHomework($data) {
         'thursday' => $data['thursday'],
         'friday' => $data['friday'],
         'assessments' => $data['assessments']
-    ));
+    ];
+
+    if (isset($data['id']) && $data['id']) {
+        return $wpdb->update($wpdb->prefix . 'homework', $wpData, ['id' => $data['id']]);
+    }
+
+    return $wpdb->insert($wpdb->prefix . 'homework', $wpData);
+}
+
+function deleteHomework($id) {
+    global $wpdb;
+
+    return $wpdb->delete($wpdb->prefix . 'homework', ['id' => $id]);
 }
 
 function getHomeworkForGradeLevelAndCurrentMonday($gradeLevel, $currentMonday) {

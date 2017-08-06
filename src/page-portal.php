@@ -47,7 +47,7 @@ $wp_query = new WP_Query([
                 <?php endwhile; ?>
             </div>
 
-            <?php if (get_current_user_role() == 'student' || $_GET['student'] == 1) : ?>
+            <?php if (get_current_user_role($allowOverride = true) == 'student') : ?>
                 <div class="row student-dashboard">
                     <div class="col-md-8">
                         <?php get_template_part('partials/portal', 'homework'); ?>

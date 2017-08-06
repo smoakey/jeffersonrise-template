@@ -74,8 +74,8 @@ if (isset($_POST['submit_homework'])) {
 
                 </div>
                 <div class="col-md-6 text-right">
-                    <button type="button" class="btn btn-space btn-link btn-lg no-homework">Enter no Homework</button>
-                    <button class="btn btn-space btn-primary btn-lg" name="submit_homework">Save</button>
+                    <button type="button" class="btn btn-space btn-default no-homework">No Homework (All)</button>
+                    <button class="btn btn-space btn-success" name="submit_homework">Save Homework</button>
                 </div>
             </div>
         </form>

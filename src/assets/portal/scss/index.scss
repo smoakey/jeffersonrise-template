@@ -71,6 +71,15 @@ td.primary {
     background-color: rgba(9, 92, 140, 0.1) !important;
 }
 
+.btn-danger {
+    background-color: $jeffrise-red !important;
+    border-color: $jeffrise-red !important;
+}
+
+.colored-header-danger .modal-content .modal-header {
+    background-color: $jeffrise-red !important;
+}
+
 hr.or {
     margin: 30px 0;
     position: relative;

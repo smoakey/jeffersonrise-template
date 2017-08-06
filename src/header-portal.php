@@ -1,8 +1,8 @@
 <?php
 $current_user = wp_get_current_user();
-$user_data = get_userdata($current_user->ID);
 $user_meta = get_user_meta($current_user->ID);
-$role = ucwords(current($user_data->roles));
+$role = get_current_user_role($allowOverride = true);
+$role = ucfirst($role);
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
