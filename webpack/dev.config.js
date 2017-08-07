@@ -79,7 +79,7 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new WriteFilePlugin({
-            test: /\.(css|png|jpg|php)$/,
+            test: /\.(css|png|jpg|php|ico)$/,
         }),
         new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['assets/**/*'] })
     ]
