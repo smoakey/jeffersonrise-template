@@ -35,7 +35,9 @@
                             <i class="fa fa-<?php the_field('our_model_item' . $item . '_icon'); ?> fa-4x text-red margin-bottom-twenty" aria-hidden="true"></i>
                             <h5 class="no-margin"><?php the_field('our_model_item' . $item . '_name'); ?></h5>
                             <p class="text-light-gray"><?php the_field('our_model_item' . $item . '_description'); ?></p>
-                            <a class="button button-white button-solid-white-hover" href="<?php the_field('our_model_item' . $item . '_link'); ?>">Learn More</a>
+                            <?php if (get_field('our_model_item' . $item . '_link')) : ?>
+                                <a class="button button-white button-solid-white-hover" href="<?php the_field('our_model_item' . $item . '_link'); ?>">Learn More</a>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>

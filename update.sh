@@ -13,7 +13,7 @@ npm run build
 success
 
 printf "Copying WP content files to remote..."
-rsync -ruv --delete --exclude wordpress/wp-content/uploads/ wordpress/wp-content/* mt:~/domains/jeffersonrise.christophersmoak.me/html/wp-content/
+rsync -ruv --exclude wordpress/wp-content/uploads/ wordpress/wp-content/* mt:~/domains/jeffersonrise.christophersmoak.me/html/wp-content/
 success
 
 # printf "Dumping Wordpress DB..."
