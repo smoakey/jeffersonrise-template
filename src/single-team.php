@@ -3,7 +3,7 @@
     <main>
         <header class="page-header">
             <h2 class="container">
-                <a href="/team" class="button button-white button-solid-white-hover pull-right">
+                <a href="/about-us/our-team" class="button button-white button-solid-white-hover pull-right">
                     All Team Members
                 </a>
                 <a href="/careers" class="button button-solid-blue pull-right">
@@ -15,9 +15,7 @@
         <div class="page-content container team-member">
             <div class="row">
                 <div class="four columns">
-                    <div class="team-member-photo">
-                        <img src="<?php the_field('photo'); ?>" />
-                    </div>
+                    <div class="team-member-photo" style="background-image: url(<?php the_field('photo'); ?>)"></div>
                 </div>
                 <div class="eight columns">
                     <h3 class="no-margin"><?php the_field('name'); ?></h3>

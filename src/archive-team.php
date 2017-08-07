@@ -22,9 +22,7 @@ $wp_query = new WP_Query([
                     <?php $position = $wp_query->current_post + 1; ?>
                     <div class="four columns">
                         <a href="<?php the_permalink(); ?>" class="team-member text-center">
-                            <div class="team-member-photo">
-                                <img src="<?php the_field('photo'); ?>" alt="<?php the_field('name'); ?>" />
-                            </div>
+                            <div class="team-member-photo" style="background-image: url(<?php the_field('photo'); ?>)"></div>
                             <h5 class="team-member-name no-margin"><?php the_field('name'); ?></h5>
                             <h6 class="text-red "><?php the_field('role'); ?></h6>
                         </a>

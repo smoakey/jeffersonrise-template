@@ -5,7 +5,7 @@
     <main>
         <header class="page-header">
             <h2 class="container">
-                <a href="/news" class="button button-white button-solid-white-hover pull-right">
+                <a href="/about-us/news" class="button button-white button-solid-white-hover pull-right">
                     All News &amp; Events
                 </a>
                 News &amp; Events
