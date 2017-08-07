@@ -29,9 +29,19 @@ $wp_query = new WP_Query([
                         if (isset($_COOKIE[$key]) && $_COOKIE[$key] == 1) {
                             continue;
                         }
+
+                        $type = get_field('type')['value'];
+                        $icon = 'info-outline';
+                        if ($type == 'success') {
+                            $icon = 'check';
+                        } else if ($type == 'warning') {
+                            $icon = 'alert-triangle';
+                        } else if ($type == 'error') {
+                            $icon = 'close-circle-o';
+                        }
                     ?>
-                    <div role="alert" class="alert alert-<?php echo get_field('type')['value']; ?> alert-icon alert-icon-border  alert-dismissible">
-                        <div class="icon"><span class="mdi mdi-check"></span></div>
+                    <div role="alert" class="alert alert-<?php echo $type; ?> alert-icon alert-icon-border  alert-dismissible">
+                        <div class="icon"><span class="mdi mdi-<?php echo $icon; ?>"></span></div>
                         <div class="message">
                             <button type="button" data-dismiss="alert" aria-label="Close" class="close" data-announcement-id="<?php echo get_the_ID(); ?>">
                                 <span aria-hidden="true" class="mdi mdi-close"></span>
