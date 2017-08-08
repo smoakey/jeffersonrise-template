@@ -65,7 +65,7 @@ if (isset($_POST['submit_homework'])) {
                                         <th class="primary">Assessments</th>
                                         <th>Monday</th>
                                         <th>Tuesday</th>
-                                        <th>wednesday</th>
+                                        <th>Wednesday</th>
                                         <th>Thursday</th>
                                         <th>Friday</th>
                                         <?php if (get_current_user_role($allowOverride = true) != 'student') : ?>
