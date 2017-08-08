@@ -1,8 +1,8 @@
 .menu-trigger {
     position: absolute;
     right: 0;
-    border: 1px solid gray;
-    color: gray;
+    border: 1px solid white;
+    color: white;
     padding: 5px 10px;
     text-decoration: none;
     text-transform: uppercase;
@@ -204,5 +204,9 @@
             float: none;
             width: 100%;
         }
+    }
+
+    .portal-nav {
+        display: none;
     }
 }
