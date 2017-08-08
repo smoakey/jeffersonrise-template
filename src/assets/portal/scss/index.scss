@@ -120,3 +120,23 @@ hr.or {
         display: none;
     }
 }
+
+.weekly_homework {
+    .row + .row {
+        margin-top: 20px;
+    }
+
+    p.notes {
+        margin: 5px 0 0 0;
+        font-weight: 400;
+
+        &:before {
+            content: 'Notes: ';
+        }
+
+        input {
+            color: #aaa;
+            display: inline-block;
+        }
+    }
+}

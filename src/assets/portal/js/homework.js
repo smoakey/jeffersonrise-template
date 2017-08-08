@@ -11,17 +11,37 @@ jQuery(document).ready(function($) {
 
         $('body').on('click', '.homework-delete', confirmHomeworkDeletion);
 
+        $('body').on('click', '.homework-notes-delete', removeHomeworkNotes);
+        $('form.weekly_homework').on('change', 'input[type="file"]', removeHomeworkNotes);
+
         $('#homework-add-edit').on('show.bs.modal', function (event) {
-              var button = $(event.relatedTarget);
-              var homework = button.data('homework');
-              var modal = $(this);
+            var button = $(event.relatedTarget);
+            var homework = button.data('homework');
+            var modal = $(this);
 
-              modal.find('.modal-title').text('Edit Homework');
+            // only apply on edit
+            if (!homework) {
+                return;
+            }
 
-              $.each(homework, function (key, value) {
-                  modal.find('[name="' + key + '"]').val(value);
-              });
+            modal.find('.modal-title').text('Edit Homework');
+
+            $.each(homework, function (key, value) {
+                if (key.indexOf('notes') < 1) {
+                    modal.find('[name="' + key + '"]').val(value);
+                } else if (value) {
+                    var name = value.split('/').splice(-1,1);
+
+                    modal.find('[name="' + key + '"]')
+                        .after('<div class="homework-notes">' + name + ' <a class="homework-notes-delete" href="#">Remove</a><input type="hidden" name="' + key + '" value="' + value + '" /></div>');
+                }
+            });
         });
+    }
+
+    function removeHomeworkNotes() {
+        var $this = $(this);
+        $this.parents('.row').first().find('.homework-notes').remove();
     }
 
     function addNoHomeworkButton() {

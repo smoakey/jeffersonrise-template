@@ -120,13 +120,37 @@ function getSubjectsFromGoogleGroups() {
     return $subjects;
 }
 
-function saveHomework($data) {
+// save homework
+// jank but had to put here in order to redirect
+if (isset($_POST['submit_homework'])) {
+    saveHomework($_POST, $_FILES);
+    $returnWeek = isset($_POST['week']) ? '&week=' . $_POST['week'] : '';
+    header('Location: /portal/homework?saved=1' . $returnWeek);
+    exit;
+}
+
+function saveHomework($data, $files) {
     global $wpdb;
+
+    require_once 'wp-admin/includes/file.php';
+
+    $wpUploadData = [];
+    foreach ($files as $field => $upload) {
+        if ($upload['error'] != 0) {
+            $wpUploadData[$field] = isset($data[$field]) ? $data[$field] : '';
+            continue;
+        }
+
+        // upload file
+        $upload_overrides = array('test_form' => false);
+        $uploaded = wp_handle_upload($upload, $upload_overrides);
+        $wpUploadData[$field] = $uploaded['url'];
+    }
 
     $current_user = wp_get_current_user();
     $userId = $current_user->ID;
 
-    $wpData = [
+    $wpData = array_merge([
         'userid' => $userId,
         'week' => $data['week'],
         'grade' => $data['grade'],
@@ -137,13 +161,22 @@ function saveHomework($data) {
         'thursday' => $data['thursday'],
         'friday' => $data['friday'],
         'assessments' => $data['assessments']
-    ];
+    ], $wpUploadData);
 
     if (isset($data['id']) && $data['id']) {
         return $wpdb->update($wpdb->prefix . 'homework', $wpData, ['id' => $data['id']]);
     }
 
     return $wpdb->insert($wpdb->prefix . 'homework', $wpData);
+}
+
+if (isset($_POST['delete_homework'])) {
+    $id = $_POST['id'];
+    deleteHomework($id);
+
+    $returnWeek = isset($_POST['week']) && $_POST['week'] ? '&week=' . $_GET['week'] : '';
+    header('Location: /portal/homework?deleted=1' . $returnWeek);
+    exit;
 }
 
 function deleteHomework($id) {

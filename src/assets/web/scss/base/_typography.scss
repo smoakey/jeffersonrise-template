@@ -30,3 +30,20 @@ p {
     font-size: 15px;
     font-weight: 300;
 }
+
+blockquote {
+    padding-left: 60px;
+    margin-left: 0 !important;
+    position: relative;
+
+    &:before {
+        content: '“';
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 6em;
+        line-height: 0.8em;
+        font-family: "Times New Roman";
+        color: #ccc;
+    }
+}
