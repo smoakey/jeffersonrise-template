@@ -24,7 +24,7 @@
                     <div class="news-event-author cf">
                         <?php echo get_avatar($post->post_author, 30); ?>
                         <?php the_author_meta('display_name', $post->post_author); ?><br />
-                        <?php echo human_time_diff(get_post_time(), current_time('timestamp')); ?> ago
+                        <?php echo human_time_diff(strtotime(get_field('news_date')), current_time('timestamp')); ?> ago
                     </div>
                 </div>
                 <?php if ($hasSidebar) : ?>

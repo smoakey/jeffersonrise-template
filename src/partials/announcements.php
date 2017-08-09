@@ -4,7 +4,7 @@ $wp_query = new WP_Query([
     'posts_per_page' => 10,
     'meta_key' => 'start_date',
     'orderby' => 'meta_value',
-	'order' => 'ASC'
+    'order' => 'ASC'
 ]);
 ?>
 

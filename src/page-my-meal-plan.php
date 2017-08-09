@@ -108,7 +108,14 @@ if (isset($_POST['submit'])) {
                                 Meal Account
                             </div>
                             <div class="panel-body">
-                                <a target="_blank" href="https://www.mymealtime.com/SignIn.aspx" class="btn btn-default btn-space btn-big btn-block">
+                                <div role="alert" class="alert alert-primary alert-icon alert-icon-border">
+                                    <div class="icon"><span class="mdi mdi-info-outline"></span></div>
+                                    <div class="message">
+                                        <strong>Coming Soon:</strong><br />
+                                        MealTime Account Lookup &amp; Balance Reload
+                                    </div>
+                                </div>
+                                <!-- <a target="_blank" href="https://www.mymealtime.com/SignIn.aspx" class="btn btn-default btn-space btn-big btn-block">
                                     <i class="icon mdi mdi-money-box"></i>
                                     Reload My MealTime Balance
                                 </a>
@@ -125,7 +132,7 @@ if (isset($_POST['submit'])) {
                                     <div class="form-group text-center">
                                         <button type="submit" name="submit" class="btn btn-space btn-primary">Lookup</button>
                                     </div>
-                                </form>
+                                </form> -->
                             </div>
                         </div>
                     </div>

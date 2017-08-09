@@ -48,7 +48,13 @@
             <div class="container">
                 <h3 class="section-title">News &amp; Events</h3>
                 <div class="row">
-                    <?php $query = new WP_Query(['post_type' => 'news', 'posts_per_page' => 3]); ?>
+                    <?php $query = new WP_Query([
+                        'post_type' => 'news',
+                        'posts_per_page' => 3,
+                        'meta_key' => 'news_date',
+                        'orderby' => 'meta_value',
+                    	'order' => 'DESC'
+                    ]); ?>
                     <?php if ($query->have_posts()) : ?>
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
                             <div class="four columns">
@@ -68,7 +74,7 @@
                 </div>
                 <div class="row">
                     <div class="twelve columns text-center">
-                        <a href="/news" class="button button-blue">View all News &amp; Events</a>
+                        <a href="/about-us/news/" class="button button-blue">View all News &amp; Events</a>
                     </div>
                 </div>
             </div>

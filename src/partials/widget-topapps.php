@@ -13,11 +13,9 @@ $wp_query = new WP_Query([
             <?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
                 <div class="col-lg-4">
                     <div class="panel panel-border student-app">
-                        <a href="<?php echo get_field('link'); ?>" target="_blank">
-                            <img src="<?php echo get_field('icon'); ?>" width="100" />
-                        </a>
+                        <a href="<?php echo get_field('link'); ?>" target="_blank" style="background-image: url(<?php echo get_field('icon'); ?>);"></a>
                         <strong><?php the_title(); ?></strong>
-                        <small><?php echo get_field('caption') ?: '&nbsp;'; ?></small>
+                        <small title="<?php echo get_field('caption'); ?>"><?php echo get_field('caption') ?: '&nbsp;'; ?></small>
                     </div>
                 </div>
             <?php endwhile; ?>
