@@ -33,6 +33,13 @@
             }
         }
     }
+
+    .site-header.scrolled {
+        .menu-trigger {
+            border-color: $jeffrise-red;
+            color: $jeffrise-red;
+        }
+    }
 }
 
 @media (#{$bp-smaller-than-tablet}) {

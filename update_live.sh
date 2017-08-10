@@ -12,35 +12,46 @@ printf "Building client..."
 npm run build
 success
 
-# printf "Copying WP content files to remote..."
-# rsync -ruv --exclude wordpress/wp-content/uploads/ wordpress/wp-content/* mt:~/domains/jeffersonrise.christophersmoak.me/html/wp-content/
+printf "Copying WP content files to remote..."
+rsync -ruv wordpress/wp-content/themes/jeffersonrise/ jeffrise:~/public_html/wp-content/themes/jeffersonrise/
+success
+
+# printf "Copying WP content files from dev to local..."
+# rsync -ruv mt:~/domains/jeffersonrise.christophersmoak.me/html/wp-content/* ~/Desktop/wp-content
+# success
+#
+# printf "Copying WP content files from local to remote..."
+# rsync -ruv ~/Desktop/wp-content jeffrise:~/public_html/wp-content/
 # success
 
 # printf "Dumping Wordpress DB..."
-# mysqldump --compatible=mysql4 -P 9001 -h 127.0.0.1 -u wordpress -pwordpress wordpress > db_dump.sql
+# ssh mt "mysqldump --compatible=mysql4 -h internal-db.s87759.gridserver.com -u 1clk_wp_gHX23aD -psEFJ73Ek db87759_wp > \"db_dump.sql\""
 # success
 #
-# printf "Swapping Out Docker URL in Dump...."
-# sed -i "" "s|http://localhost:9000|http://jeffersonrise.christophersmoak.me|g" db_dump.sql
+# printf "Swapping Out DEV URL in Dump...."
+# ssh mt "sed -i 's|http://jeffersonrise.christophersmoak.me|http://jeffersonrise.org|g' db_dump.sql"
 # success
 #
-# printf "Copying DB Dump to remote...."
-# scp -q db_dump.sql mt:~/domains/jeffersonrise.christophersmoak.me/
+# printf "Copying DB Dump from dev to local...."
+# scp -q mt:~/db_dump.sql ~/
 # success
 #
-# printf "Backing up Remote DB..."
-# today=`date '+%Y_%m_%d_%H_%M_%S'`
-# ssh mt "cd ~/domains/jeffersonrise.christophersmoak.me/db_dumps; mysqldump --compatible=mysql4 -h internal-db.s87759.gridserver.com -u 1clk_wp_gHX23aD -psEFJ73Ek db87759_wp > \"db_bak_$today.sql\""
+# printf "Copying DB Dump from local to remote...."
+# scp -q ~/db_dump.sql jeffrise:~
 # success
 #
 # printf "Loading From Dump...."
-# ssh mt "mysql -h internal-db.s87759.gridserver.com -u 1clk_wp_gHX23aD -psEFJ73Ek db87759_wp < ~/domains/jeffersonrise.christophersmoak.me/db_dump.sql"
+# ssh jeffrise "mysql -h 127.0.0.01 -u csmoak -pLaX12345 i451401_wp1 < ~/db_dump.sql"
 # success
 #
-# printf "Removing db_dump...."
-# ssh mt "rm ~/domains/jeffersonrise.christophersmoak.me/db_dump.sql"
+# printf "Removing Remote dump...."
+# ssh jeffrise "rm ~/db_dump.sql"
+# success
+#
+# printf "Removing DEV dump...."
+# ssh mt "rm ~/db_dump.sql"
 # success
 #
 # printf "Removing Local Dump...."
-# rm db_dump.sql
+# rm ~/db_dump.sql
 # success

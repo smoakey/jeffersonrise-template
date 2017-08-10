@@ -10,9 +10,9 @@
 
     &:hover,
     &.active {
-        border-color: $jeffrise-red;
-        background-color: $jeffrise-red;
-        color: white;
+        border-color: $jeffrise-red !important;
+        background-color: $jeffrise-red !important;
+        color: white !important;
     }
 }
 
@@ -35,7 +35,8 @@
             }
         }
 
-        &.apply-now {
+        &.apply-now,
+        &.student-portal {
             a {
                 background-color: $jeffrise-red;
                 color: white;
@@ -44,6 +45,18 @@
                 &:hover {
                     background-color: darken($jeffrise-red, 10%);
                     color: white;
+                }
+            }
+        }
+
+        &.student-portal {
+            display: none;
+
+            a {
+                background-color: $jeffrise-blue;
+
+                &:hover {
+                    background-color: darken($jeffrise-blue, 10%);
                 }
             }
         }
@@ -156,8 +169,13 @@
                 display: none;
             }
 
-            &.apply-now a {
+            &.apply-now a,
+            &.student-portal a {
                 margin-left: 0;
+            }
+
+            &.student-portal {
+                display: block;
             }
 
             &.menu-item-has-children > a {
@@ -190,11 +208,16 @@
             display: none;
         }
     }
+
+    .portal-nav {
+        display: none;
+    }
 }
 
 @media (#{$bp-smaller-than-tablet}) {
     .menu-trigger {
         top: 12px;
+        right: 10px;
     }
 
     .menu {
@@ -207,6 +230,7 @@
     }
 
     .portal-nav {
-        display: none;
+        top: -10px;
+        right: 10px;
     }
 }
