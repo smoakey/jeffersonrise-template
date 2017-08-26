@@ -1,7 +1,16 @@
 <?php
 $menu = get_portal_menu();
 $current_url = get_current_page_url();
-$linkGroups['Menu'] = $menu['items'];
+$menuItems = $menu['items'];
+$linkGroups = [];
+$group = 'Menu';
+foreach ($menuItems as $item) {
+    if ($item['url'] == '#divider') {
+        $group = $item['title'];
+        continue;
+    }
+    $linkGroups[$group][] = $item;
+}
 ?>
 
 <div class="be-left-sidebar">
