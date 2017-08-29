@@ -1,12 +1,12 @@
-$(document).ready(init);
+jQuery(document).ready(init);
 
-function init() {
+function init($) {
     // instead of overriding almost all woocommerce templates to style them,
     // I am removing/adding styles with JS
-    products();
-    product();
-    cart();
-    checkout();
+    products($);
+    product($);
+    cart($);
+    checkout($);
 
     // because wordpress/woocommerce is the jankiest of janky and I can get the custom
     // events fired after the div has been updated (to re-classify the DOM w/JS)
@@ -17,7 +17,7 @@ function init() {
     });
 }
 
-function products() {
+function products($) {
     var products = $('ul.products');
     if (!products.length) {
         return;
@@ -29,7 +29,7 @@ function products() {
         .addClass('btn btn-danger');
 }
 
-function product() {
+function product($) {
     var product = $('.product');
 
     var gallery = product.find('.woocommerce-product-gallery');
@@ -91,7 +91,7 @@ function product() {
         });
 }
 
-function cart() {
+function cart($) {
     $('.woocommerce')
         .find('table.shop_table')
         .removeClass('shop_table shop_table_responsive cart woocommerce-cart-form__contents')
@@ -139,7 +139,7 @@ function cart() {
         .height(70);
 }
 
-function checkout() {
+function checkout($) {
     var checkoutCouponForm = $('.woocommerce').find('form.checkout_coupon');
     var checkoutForm = $('.woocommerce').find('form.checkout');
 
