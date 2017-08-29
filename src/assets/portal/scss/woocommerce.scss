@@ -1,0 +1,123 @@
+.woocommerce-store-notice {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background-color: $jeffrise-red !important;
+}
+
+.products {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+    clear: both;
+
+    .product {
+        float: left;
+        width: 33.3%;
+        text-align: center;
+
+        h2 {
+            color: #404040
+        }
+
+        .price {
+            display: block;
+            color: $jeffrise-red;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.product {
+    .woocommerce-product-gallery  {
+        overflow: hidden;
+
+        figure {
+            > div {
+                &:nth-child(1) {
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                width: 100px;
+                display: inline-block;
+                margin-right: 10px;
+
+                a:hover {
+                    cursor: zoom-in;
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .summary {
+        .price {
+            font-size: 1.5em;
+            color: $jeffrise-red;
+        }
+
+        .stock {
+            font-style: italic;
+        }
+    }
+
+    .product_meta {
+        display: none;
+    }
+
+    .quantity {
+        display: inline-block;
+    }
+
+    .nav-tabs {
+        background: transparent;
+        border-bottom: 0;
+        display: none;
+    }
+    .panel {
+        background: transparent;
+    }
+}
+
+#image-gallery img {
+    width: 100%;
+    height: auto;
+}
+
+.woocommerce-cart-form {
+    a.remove {
+        color: $jeffrise-red !important;
+    }
+
+    .coupon {
+        float: left !important;
+
+        label {
+            display: none;
+        }
+    }
+
+    td.actions {
+        text-align: right !important;
+    }
+}
+
+form.checkout_coupon {
+    border-radius: 0 !important;
+}
+
+.woocommerce-shipping-fields {
+    display: none;
+}
+
+#payment {
+     background: #FFF !important;
+}

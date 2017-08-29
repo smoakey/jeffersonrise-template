@@ -90,14 +90,12 @@ get_header( 'portal' ); ?>
 
 		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
 
-			<?php
-				/**
-				 * woocommerce_no_products_found hook.
-				 *
-				 * @hooked wc_no_products_found - 10
-				 */
-				do_action( 'woocommerce_no_products_found' );
-			?>
+            <div role="alert" class="alert alert-primary alert-icon alert-icon-border">
+                <div class="icon"><span class="mdi mdi-check"></span></div>
+                <div class="message">
+                    No products were found matching your selection.
+                </div>
+            </div>
 
 		<?php endif; ?>
 

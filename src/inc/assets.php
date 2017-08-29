@@ -8,7 +8,7 @@ function add_theme_scripts() {
     $base = 'http://localhost:3001';
     $base_local = get_template_directory();
 
-    $url = get_permalink($post);
+    $url = get_current_page_url();
     if (strrpos($url, 'portal') === false
         && strrpos($url, 'product') === false) {
         $bundle = 'web';

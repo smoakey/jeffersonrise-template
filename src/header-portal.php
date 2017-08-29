@@ -37,23 +37,36 @@ $role = ucfirst($role);
                                         </div>
                                     </li>
                                     <?php if ($role == 'Administrator') : ?>
-                                        <li><a href="/wp-admin"><span class="icon mdi mdi-settings"></span> Wordpress Admin</a></li>
+                                        <li>
+                                            <a href="/wp-admin" target="_blank">
+                                                <span class="icon mdi mdi-settings"></span> Wordpress Admin
+                                            </a>
+                                        </li>
                                     <?php endif; ?>
-                                    <!-- <li><a href="/portal/store/my-account"><span class="icon mdi mdi-user"></span> My Account</a></li> -->
-                                    <li><a href="<?php echo wp_logout_url(home_url()); ?>">
-                                        <span class="icon mdi mdi-power"></span> Logout</a>
+                                    <li>
+                                        <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>">
+                                            <span class="icon mdi mdi-account"></span> My Account
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo wp_logout_url(home_url()); ?>">
+                                            <span class="icon mdi mdi-power"></span> Logout
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         <div class="page-title"><span><?php echo $role; ?> Dashboard</span></div>
-                        <!-- <ul class="nav navbar-nav navbar-right be-icons-nav">
+                        <ul class="nav navbar-nav navbar-right be-icons-nav">
                             <li class="dropdown">
-                                <a href="/portal/store/cart">
+                                <a href="<?php echo wc_get_cart_url(); ?>">
                                     <span class="icon mdi mdi-shopping-cart"></span>
+                                    <?php if (WC()->cart->get_cart_contents_count() > 0) : ?>
+                                        <span class="badge badge-danger"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                    <?php endif; ?>
                                 </a>
                             </li>
-                        </ul> -->
+                        </ul>
                     </div>
                 </div>
             </nav>

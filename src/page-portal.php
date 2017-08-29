@@ -1,5 +1,3 @@
-
-
 <?php get_header('portal'); ?>
     <div class="be-content">
         <div class="main-content container-fluid">

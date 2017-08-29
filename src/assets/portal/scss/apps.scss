@@ -1,0 +1,38 @@
+.student-app {
+    border-color: #ddd;
+    text-align: center;
+    padding: 20px;
+
+    &:hover {
+        border-color: $jeffrise-red;
+    }
+
+    a {
+        display: block;
+        display: block;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+    }
+
+    strong {
+        display: block;
+        color: #444;
+        margin-top: 10px;
+    }
+
+    small {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.topapps {
+    div[class*="col-"] {
+        width: 100%;
+    }
+}

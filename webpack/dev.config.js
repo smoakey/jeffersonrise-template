@@ -81,6 +81,6 @@ module.exports = {
         new WriteFilePlugin({
             test: /\.(css|png|jpg|php|ico)$/,
         }),
-        new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['assets/**/*'] })
+        new CopyWebpackPlugin([{ from: srcDir, to: buildDir }], { ignore: ['assets/**/*'], copyUnmodified: true })
     ]
 };
