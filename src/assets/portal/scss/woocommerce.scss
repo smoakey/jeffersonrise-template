@@ -69,6 +69,19 @@
         }
     }
 
+    .variations {
+        margin-bottom: 10px;
+
+        td,
+        th {
+            vertical-align: text-bottom;
+
+            label {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+
     .product_meta {
         display: none;
     }

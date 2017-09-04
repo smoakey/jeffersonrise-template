@@ -53,6 +53,11 @@ function product($) {
         .removeClass('single_add_to_cart_button button alt')
         .addClass('btn btn-danger')
 
+    cart
+        .find('select')
+        .addClass('form-control input-xs')
+        .css({ 'display': 'inline-block', 'width': 'auto' });
+
     $('.woocommerce-tabs')
         .find('.wc-tabs')
         .removeClass('wc-tabs')
