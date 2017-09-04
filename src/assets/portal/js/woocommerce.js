@@ -7,6 +7,7 @@ function init($) {
     product($);
     cart($);
     checkout($);
+    myaccount($);
 
     // because wordpress/woocommerce is the jankiest of janky and I can get the custom
     // events fired after the div has been updated (to re-classify the DOM w/JS)
@@ -196,4 +197,25 @@ function checkout($) {
             .removeClass('button alt')
             .addClass('btn btn-danger btn-lg btn-block');
     }, 1500);
+}
+
+function myaccount($) {
+    var myAccount = $('.woocommerce-MyAccount-content');
+    if (!myAccount.length) {
+        return;
+    }
+
+    myAccount
+        .find('input[type="text"], input[type="tel"], input[type="email"]')
+        .removeClass('input-text')
+        .addClass('form-control input-sm');
+
+    myAccount
+        .find('input[type="button"], input[type="submit"], button, .woocommerce-button')
+        .removeClass('button')
+        .addClass('btn btn-default');
+
+    myAccount
+        .find('.woocommerce-orders-table .woocommerce-button')
+        .addClass('btn-sm');
 }

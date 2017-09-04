@@ -1,0 +1,43 @@
+.woocommerce-MyAccount-navigation {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid $jeffrise-red;
+        margin-bottom: 15px;
+
+        li {
+            display: inline-block;
+
+            a {
+                display: block;
+                padding: 5px 10px 10px 10px;
+                color: #777;
+                position: relative;
+
+                &:hover {
+                    color: $jeffrise-red;
+                }
+            }
+        }
+
+        li.is-active {
+            a {
+                color: $jeffrise-red;
+                font-weight: bold;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    margin-left: -6px;
+                    border-bottom: 6px solid $jeffrise-red;
+                    border-top: 6px solid transparent;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                }
+            }
+        }
+    }
+}
