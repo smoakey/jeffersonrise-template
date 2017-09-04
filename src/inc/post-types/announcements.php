@@ -39,11 +39,11 @@ function add_announcements_post_column_content($column, $post_id) {
     {
         case 'type':
             $type = get_field('type', $post_id);
-            echo $type['label'];
+            echo isset($type['label']) ? $type['label'] : null;
             break;
         case 'link':
             $link = get_field('link', $post_id);
-            echo $link['url'];
+            echo isset($link['url']) ? $link['url'] : '';
             break;
         default:
             echo get_field($column, $post_id);
