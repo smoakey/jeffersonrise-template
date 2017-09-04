@@ -20,9 +20,6 @@
             <div class="main-content container-fluid">
                 <div class="panel">
                     <div class="panel-heading panel-heading-divider">
-                        <small class="pull-right text-muted">
-                            Updated <?php echo get_the_modified_date('m/d/Y @ g:ia', $post); ?>
-                        </small>
                         <?php the_title(); ?>
                     </div>
                     <div class="panel-body">
