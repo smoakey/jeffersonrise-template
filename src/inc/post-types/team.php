@@ -1,5 +1,5 @@
 <?php
-define('team_posts_per_page', 100);
+define('team_posts_per_page', -1);
 
 add_action('init', 'create_team_post_type');
 add_filter('manage_team_posts_columns', 'add_team_post_column');

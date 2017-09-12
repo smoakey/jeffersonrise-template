@@ -1,10 +1,19 @@
 <?php
 $wp_query = new WP_Query([
     'post_type' => 'news',
-    'posts_per_page' => news_posts_per_page,
-    'paged' => get_query_var('paged') ?: 1
+    'paged' => get_query_var('paged') ?: 1,
+    'meta_key' => 'news_date',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
+    'meta_query' => [
+        'relation' => 'AND',
+        [
+            'key' => 'location',
+            'value' => ['Web', 'Both'],
+            'compare' => 'IN'
+        ]
+    ]
 ]);
-
 
 $echo = false;
 $max = $wp_query->max_num_pages;

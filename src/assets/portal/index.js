@@ -8,3 +8,4 @@ import './js/login.js';
 import './js/homework.js';
 import './js/announcements.js';
 import './js/woocommerce.js';
+import './js/events.js';

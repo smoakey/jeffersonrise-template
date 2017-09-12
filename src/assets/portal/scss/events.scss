@@ -1,0 +1,220 @@
+#calendar {
+    button {
+        background: transparent;
+        display: inline-block;
+        height: 38px;
+        line-height: 38px;
+
+        &.tippy-tooltip {
+            border-radius: 0;
+            font-size: 1em;
+        }
+    }
+
+    .pika-title {
+        position: relative;
+        height: 38px;
+        text-align: center;
+
+        .pika-label {
+            display: inline-block;
+            position: relative;
+            height: 38px;
+            line-height: 38px;
+
+            + .pika-label {
+                margin-left: 5px;
+            }
+
+            select {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+        }
+
+        .pika-prev,
+        .pika-next {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            padding: 0;
+            border: none;
+            width: 20px;
+            overflow: hidden;
+            color: transparent;
+
+            &:before {
+                content: '\f0d9';
+                font-family: 'Fontawesome';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: #ccc;
+                font-size: 18px;
+            }
+
+            &:hover:before {
+                color: gray;
+            }
+        }
+
+        .pika-next {
+            left: auto;
+            right: 10px;
+            text-align: right;
+
+            &:before {
+                content: '\f0da';
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+
+    .pika-table {
+        width: 100%;
+        border: 1px solid #eee;
+        color: gray;
+
+        thead th,
+        tbody td {
+            padding: 0;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            width: calc(100% / 7);
+            text-align: center;
+        }
+
+        thead {
+            abbr {
+                text-decoration: none;
+                border: none;
+                font-weight: 400;
+                font-size: 0.8em;
+            }
+        }
+
+        tbody {
+            button {
+                padding: 0;
+                width: 100%;
+                border: none;
+                color: inherit;
+                font-weight: 300;
+                pointer-events: none;
+            }
+        }
+
+        .is-today {
+            button {
+                color: $jeffrise-blue;
+                font-weight: 600;
+            }
+        }
+        .has-event {
+            button {
+                position: relative;
+                pointer-events: inherit;
+
+                &:after {
+                    content: '·';
+                    font-weight: 900;
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    color: $jeffrise-red;
+                    font-size: 24px;
+                }
+
+                &:hover {
+                    background-color: $jeffrise-red;
+                    color: white;
+
+                    &:after {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.news-event-list-filtered {
+    font-size: 0.9em;
+    font-weight: 200;
+    color: gray;
+
+    a {
+        display: inline-block;
+        color: $jeffrise-red;
+        padding: 0 5px;
+
+        &:hover {
+            color: white;
+            background-color: $jeffrise-red;
+        }
+    }
+}
+
+.news-event-item {
+    + .news-event-item {
+        border-top: 1px solid #eee;
+        margin-top: 30px;
+        padding: 20px 0 0 0;
+    }
+
+    .news-event-image {
+        float: right;
+        width: 150px;
+        margin-left: 40px;
+    }
+
+    .news-event-title {
+        font-weight: bold;
+        font-size: 1.2em;
+
+        a {
+            color: #555;
+
+            &:hover {
+                color: $jeffrise-red;
+
+                &:after {
+                    content: 'Read more →';
+                    font-size: 14px;
+                    color: #ccc;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+}
+
+.news-event-date {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.news-event-preview {
+    color: gray;
+    font-weight: 200;
+}
+
+.news-event-author {
+    margin-top: 10px;
+    font-size: 0.8em;
+    line-height: 1.2;
+    font-weight: 200;
+    color: #ccc;
+
+    img {
+        float: left;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+}

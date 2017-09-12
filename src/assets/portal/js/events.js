@@ -39,11 +39,12 @@ function processNewsPosts(newsItem) {
 
 function filterWebNewsPosts(newsItems) {
     return _.filter(newsItems, item => {
-        return item.location != 'Portal';
+        return item.location != 'Web';
     });
 }
 
 function setNewsDates(dates) {
+    console.log(dates);
     newsDates = dates;
     return dates;
 }
@@ -63,7 +64,7 @@ function renderDatesInCalendar(dates) {
 
         // add today tooltip
         if ($cell.hasClass('is-today')) {
-            $button.addClass('tooltip').attr('title', 'Today');
+            $button.addClass('tippy-tooltip').attr('title', 'Today');
         }
 
         // fix zero indexed months in pikaday
@@ -84,7 +85,7 @@ function renderDatesInCalendar(dates) {
             var title = `${eventsForCellDate.length} Event(s): ${eventsForCellDate.join(', ')}`;
 
             $cell.addClass('has-event');
-            $button.addClass('tooltip').attr('title', title);
+            $button.addClass('tippy-tooltip').attr('title', title);
             setTimeout(createTooltips, 1000);
         }
     });
@@ -95,7 +96,7 @@ function searchNewsPostsByDate(date) {
 }
 
 function createTooltips() {
-    new Tippy('.tooltip', {
+    new Tippy('.tippy-tooltip', {
         arrow: true,
         appendTo: document.body
     });

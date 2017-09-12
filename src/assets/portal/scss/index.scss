@@ -1,6 +1,7 @@
 @import "../beagle/lib/material-design-icons/css/material-design-iconic-font.min.css";
 @import "../beagle/lib/perfect-scrollbar/css/perfect-scrollbar.min.css";
 @import "../beagle/css/style.min.css";
+@import "../../../../node_modules/tippy.js/dist/tippy.css";
 
 @import "../../common/scss/variables";
 @import "./general";
@@ -9,3 +10,4 @@
 @import "./homework";
 @import "./woocommerce";
 @import "./my-account";
+@import "./events";
