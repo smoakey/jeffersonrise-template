@@ -168,12 +168,6 @@
         padding: 20px 0 0 0;
     }
 
-    .news-event-image {
-        float: right;
-        width: 150px;
-        margin-left: 40px;
-    }
-
     .news-event-title {
         font-weight: bold;
         font-size: 1.2em;
@@ -192,6 +186,12 @@
                 }
             }
         }
+    }
+}
+
+.news-event-image {
+    img {
+        max-width: 100%;
     }
 }
 

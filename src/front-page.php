@@ -44,19 +44,29 @@
             </div>
         </section>
 
+        <?php $query = new WP_Query([
+            'post_type' => 'news',
+            'posts_per_page' => 3,
+            'meta_key' => 'news_date',
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'meta_query' => [
+                'relation' => 'AND',
+                [
+                    'key' => 'location',
+                    'value' => ['Web', 'Both'],
+                    'compare' => 'IN'
+                ]
+            ]
+        ]); ?>
         <section class="">
             <div class="container">
                 <h3 class="section-title">News &amp; Events</h3>
-                <div class="row">
-                    <?php $query = new WP_Query([
-                        'post_type' => 'news',
-                        'posts_per_page' => 3,
-                        'meta_key' => 'news_date',
-                        'orderby' => 'meta_value',
-                    	'order' => 'DESC'
-                    ]); ?>
-                    <?php if ($query->have_posts()) : ?>
+                <?php if ($query->have_posts()) : ?>
+                    <div class="row">
+                        <?php $i = 0; ?>
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
+                            <?php $i++; ?>
                             <div class="four columns">
                                 <div class="news-item">
                                     <div class="news-image" style="background-image: url('<?php the_field('news_image'); ?>');"></div>
@@ -68,10 +78,13 @@
                                     </p>
                                 </div>
                             </div>
+                            <?php if ($i % 3 == 0) : ?>
+                                </div><div class="row">
+                            <?php endif; ?>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
-                    <?php endif; ?>
-                </div>
+                    </div>
+                <?php endif; ?>
                 <div class="row">
                     <div class="twelve columns text-center">
                         <a href="/about-us/news/" class="button button-blue">View all News &amp; Events</a>
