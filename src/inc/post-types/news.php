@@ -2,7 +2,7 @@
 define('news_posts_per_page', 10);
 
 add_action('init', 'create_news_post_type');
-add_action('init', 'rewrite_news_urls');
+// add_action('init', 'rewrite_news_urls');
 add_action('pre_get_posts', 'set_news_posts_per_page');
 add_action('pre_get_posts', 'set_news_posts_request_filters');
 add_action('rest_api_init', 'add_fields_to_rest_api');
@@ -33,9 +33,9 @@ function create_news_post_type() {
     ]);
 }
 
-function rewrite_news_urls() {
-    add_rewrite_rule('^portal/events/page/([^/]+)', 'index.php?post_type=news&paged=$matches[1]', 'bottom');
-}
+// function rewrite_news_urls() {
+//     add_rewrite_rule('^portal/events/page/([^/]+)', 'index.php?post_type=news&paged=$matches[1]', 'bottom');
+// }
 
 // wordpress is dumb. it uses the main "post" type setting to decide if a page exists for the paged=# param
 function set_news_posts_per_page($query) {

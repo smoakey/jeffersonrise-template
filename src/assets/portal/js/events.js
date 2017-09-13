@@ -44,7 +44,6 @@ function filterWebNewsPosts(newsItems) {
 }
 
 function setNewsDates(dates) {
-    console.log(dates);
     newsDates = dates;
     return dates;
 }

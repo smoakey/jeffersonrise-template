@@ -32,7 +32,7 @@ $next = $current != next_posts($max, $echo) ? next_posts($max, $echo) : '';
                 <div class="eight columns">
                     <?php if(isset($_GET['date'])) : ?>
                         <div class="news-event-list-filtered">
-                            <a class="pull-right" href="/news"><i class="fa fa-times"></i></a>
+                            <a class="pull-right" href="/about-us/news"><i class="fa fa-times"></i></a>
                             Filtered News &amp; Events to <?php echo date('M d, Y', strtotime($_GET['date'])); ?></em>
                         </div>
                     <?php endif; ?>
