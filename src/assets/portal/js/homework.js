@@ -30,10 +30,16 @@ jQuery(document).ready(function($) {
                 if (key.indexOf('notes') < 1) {
                     modal.find('[name="' + key + '"]').val(value);
                 } else if (value) {
-                    var name = value.split('/').splice(-1,1);
+                    var notes = value.split(',');
+                    var links = [];
 
-                    modal.find('[name="' + key + '"]')
-                        .after('<div class="homework-notes">' + name + ' <a class="homework-notes-delete" href="#">Remove</a><input type="hidden" name="' + key + '" value="' + value + '" /></div>');
+                    $.each(notes, function (note) {
+                        var name = value.split('/').splice(-1,1);
+                        links.push('<div class="homework-notes">' + name + ' <a class="homework-notes-delete" href="#">Remove</a><input type="hidden" name="' + key + '" value="' + value + '" /></div>');
+                    });
+
+                    modal.find('[name="' + key + '[]"]').parents('.notes').find('.current-notes')
+                        .html(links.join(''));
                 }
             });
         });
@@ -41,7 +47,7 @@ jQuery(document).ready(function($) {
 
     function removeHomeworkNotes() {
         var $this = $(this);
-        $this.parents('.row').first().find('.homework-notes').remove();
+        $this.parents('.homework-notes').remove();
     }
 
     function addNoHomeworkButton() {

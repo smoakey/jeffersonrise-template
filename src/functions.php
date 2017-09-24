@@ -133,20 +133,24 @@ if (isset($_POST['submit_homework'])) {
 
 function saveHomework($data, $files) {
     global $wpdb;
-
     require_once 'wp-admin/includes/file.php';
 
     $wpUploadData = [];
     foreach ($files as $field => $upload) {
-        if ($upload['error'] != 0) {
-            $wpUploadData[$field] = isset($data[$field]) ? $data[$field] : '';
-            continue;
-        }
+        $uploads = reArrayFiles($files[$field]);
+        $urls = [];
+        foreach ($uploads as $upload) {
+            if ($upload['error'] != 0) {
+                $wpUploadData[$field] = isset($data[$field]) ? $data[$field] : '';
+                continue 2;
+            }
 
-        // upload file
-        $upload_overrides = array('test_form' => false);
-        $uploaded = wp_handle_upload($upload, $upload_overrides);
-        $wpUploadData[$field] = $uploaded['url'];
+            // upload file
+            $upload_overrides = array('test_form' => false);
+            $uploaded = wp_handle_upload($upload, $upload_overrides);
+            $urls[] = $uploaded['url'];
+        }
+        $wpUploadData[$field] = join($urls, ',');
     }
 
     $current_user = wp_get_current_user();
@@ -170,6 +174,20 @@ function saveHomework($data, $files) {
     }
 
     return $wpdb->insert($wpdb->prefix . 'homework', $wpData);
+}
+
+function reArrayFiles(&$file_post) {
+    $file_ary = array();
+    $file_count = count($file_post['name']);
+    $file_keys = array_keys($file_post);
+
+    for ($i=0; $i<$file_count; $i++) {
+        foreach ($file_keys as $key) {
+            $file_ary[$i][$key] = $file_post[$key][$i];
+        }
+    }
+
+    return $file_ary;
 }
 
 if (isset($_POST['delete_homework'])) {

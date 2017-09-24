@@ -1,6 +1,28 @@
 <?php
 $gradeLevels = getGradeLevelsFromGoogleGroups();
 $currentMonday = $_GET['week'] ?: getCurrentMonday();
+
+function createNoteLinks($notes) {
+    $links = [];
+
+    if (!$notes) {
+        return '';
+    }
+
+    $notes = explode(',', $notes);
+
+    foreach ($notes as $note) {
+        $filename = array_pop(explode('/', $note));
+        $title = $filename;
+        if (strlen($filename) > 20) {
+            $extension = array_pop(explode('.', $filename));
+            $filename = substr($filename, 0, 14) . '... .' . $extension;
+        }
+        $links[] = '<a href="' . $note . '" target="_blank" title="' . $title . '"><i class="icon mdi mdi-file-text"></i> ' . $filename . '</a>';
+    }
+
+    echo '<br />' . join('<br />', $links);
+}
 ?>
 
 <?php foreach ($gradeLevels as $gradeLevel) : ?>
@@ -28,43 +50,23 @@ $currentMonday = $_GET['week'] ?: getCurrentMonday();
                         <td class="primary"><?php echo $h['assessments']; ?></td>
                         <td>
                             <?php echo $h['monday']; ?>
-                            <?php if ($h['monday_notes']) : ?>
-                                <a href="<?php echo $h['monday_notes']; ?>" target="_blank" title="Download Notes">
-                                    <i class="icon mdi mdi-file-text"></i> Notes
-                                </a>
-                            <?php endif; ?>
+                            <?php echo createNoteLinks($h['monday_notes']); ?>
                         </td>
                         <td>
                             <?php echo $h['tuesday']; ?>
-                            <?php if ($h['tuesday_notes']) : ?>
-                                <a href="<?php echo $h['tuesday_notes']; ?>" target="_blank" title="Download Notes">
-                                    <i class="icon mdi mdi-file-text"></i> Notes
-                                </a>
-                            <?php endif; ?>
+                            <?php echo createNoteLinks($h['tuesday_notes']); ?>
                         </td>
                         <td>
                             <?php echo $h['wednesday']; ?>
-                            <?php if ($h['wednesday_notes']) : ?>
-                                <a href="<?php echo $h['wednesday_notes']; ?>" target="_blank">
-                                    <i class="icon mdi mdi-file-text"></i> Notes
-                                </a>
-                            <?php endif; ?>
+                            <?php echo createNoteLinks($h['wendesday_notes']); ?>
                         </td>
                         <td>
                             <?php echo $h['thursday']; ?>
-                            <?php if ($h['thursday_notes']) : ?>
-                                <a href="<?php echo $h['thursday_notes']; ?>" target="_blank">
-                                    <i class="icon mdi mdi-file-text"></i> Notes
-                                </a>
-                            <?php endif; ?>
+                            <?php echo createNoteLinks($h['thursday_notes']); ?>
                         </td>
                         <td>
                             <?php echo $h['friday']; ?>
-                            <?php if ($h['friday_notes']) : ?>
-                                <a href="<?php echo $h['friday_notes']; ?>" target="_blank">
-                                    <i class="icon mdi mdi-file-text"></i> Notes
-                                </a>
-                            <?php endif; ?>
+                            <?php echo createNoteLinks($h['friday_notes']); ?>
                         </td>
                         <?php if (get_current_user_role($allowOverride = true) != 'student') : ?>
                             <td>

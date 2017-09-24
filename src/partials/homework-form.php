@@ -43,31 +43,31 @@ $currentMonday = getCurrentMonday();
             <div class="row">
                 <div class="col-md-12">
                     <textarea name="monday" class="form-control" placeholder="Monday" rows="1"></textarea>
-                    <p class="notes"><input type="file" name="monday_notes"/></p>
+                    <p class="notes"><input type="file" name="monday_notes[]" multiple /><span class="current-notes"></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <textarea name="tuesday" class="form-control" placeholder="Tuesday" rows="1"></textarea>
-                    <p class="notes"><input type="file" name="tuesday_notes" /></p>
+                    <p class="notes"><input type="file" name="tuesday_notes[]" multiple /><span class="current-notes"></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <textarea name="wednesday" class="form-control" placeholder="Wednesday" rows="1"></textarea>
-                    <p class="notes"><input type="file" name="wednesday_notes" /></p>
+                    <p class="notes"><input type="file" name="wednesday_notes[]" multiple /><span class="current-notes"></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <textarea name="thursday" class="form-control" placeholder="Thursday" rows="1"></textarea>
-                    <p class="notes"><input type="file" name="thursday_notes" /></p>
+                    <p class="notes"><input type="file" name="thursday_notes[]" multiple /><span class="current-notes"></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <textarea name="friday" class="form-control" placeholder="Friday" rows="1"></textarea>
-                    <p class="notes"><input type="file" name="friday_notes" /></p>
+                    <p class="notes"><input type="file" name="friday_notes[]" multiple /><span class="current-notes"></p>
                 </div>
             </div>
             <hr />
