@@ -13,7 +13,7 @@ require_once __DIR__ . '/inc/post-types/news.php';
 require_once __DIR__ . '/inc/post-types/student-app.php';
 require_once __DIR__ . '/inc/post-types/team.php';
 require_once __DIR__ . '/inc/post-types/announcements.php';
-// require_once __DIR__ . '/inc/post-types/homework.php';
+require_once __DIR__ . '/inc/post-types/teachers.php';
 
 // Portal Related functionality
 require_once __DIR__ . '/inc/login.php';
