@@ -25,8 +25,9 @@ function createNoteLinks($notes) {
 }
 ?>
 
-<?php foreach ($gradeLevels as $gradeLevel) : ?>
-    <table class="table table-condensed table-bordered">
+<?php foreach ($gradeLevels as $i => $gradeLevel) : ?>
+    <h4><?php echo $gradeLevel; ?><sup>th</sup> Grade Homework</h4>
+    <table class="table table-condensed table-bordered homework-table">
         <thead>
             <tr>
                 <th></th>
@@ -93,5 +94,8 @@ function createNoteLinks($notes) {
             <?php endif; ?>
         </tbody>
     </table>
+    <?php if (isset($gradeLevels[$i+1])) : ?>
+        <hr />
+    <?php endif; ?>
 <?php endforeach; ?>
 <em class="text-muted">&mdash; No Homework</em>
