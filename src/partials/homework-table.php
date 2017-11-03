@@ -48,25 +48,25 @@ function createNoteLinks($notes) {
                 <?php foreach ($homework as $h) : ?>
                     <tr>
                         <th><?php echo $h['subject']; ?></th>
-                        <td class="primary"><?php echo $h['assessments']; ?></td>
+                        <td class="primary"><?php echo stripslashes($h['assessments']); ?></td>
                         <td>
-                            <?php echo $h['monday']; ?>
+                            <?php echo stripslashes($h['monday']); ?>
                             <?php echo createNoteLinks($h['monday_notes']); ?>
                         </td>
                         <td>
-                            <?php echo $h['tuesday']; ?>
+                            <?php echo stripslashes($h['tuesday']); ?>
                             <?php echo createNoteLinks($h['tuesday_notes']); ?>
                         </td>
                         <td>
-                            <?php echo $h['wednesday']; ?>
+                            <?php echo stripslashes($h['wednesday']); ?>
                             <?php echo createNoteLinks($h['wendesday_notes']); ?>
                         </td>
                         <td>
-                            <?php echo $h['thursday']; ?>
+                            <?php echo stripslashes($h['thursday']); ?>
                             <?php echo createNoteLinks($h['thursday_notes']); ?>
                         </td>
                         <td>
-                            <?php echo $h['friday']; ?>
+                            <?php echo stripslashes($h['friday']); ?>
                             <?php echo createNoteLinks($h['friday_notes']); ?>
                         </td>
                         <?php if (get_current_user_role($allowOverride = true) != 'student') : ?>
@@ -76,7 +76,7 @@ function createNoteLinks($notes) {
                                     data-toggle="modal"
                                     data-target="#homework-add-edit"
                                     class="homework-edit btn btn-sm btn-default"
-                                    data-homework='<?php echo json_encode($h); ?>'>Edit</button>
+                                    data-homework="<?php echo htmlspecialchars(json_encode($h), ENT_QUOTES, 'UTF-8'); ?>">Edit</button>
 
                                 <form method="post" style="display:inline;">
                                     <input type="hidden" name="id" value="<?php echo $h['id']; ?>" />
@@ -98,4 +98,4 @@ function createNoteLinks($notes) {
         <hr />
     <?php endif; ?>
 <?php endforeach; ?>
-<em class="text-muted">&mdash; No Homework</em>
+<em class="text-muted">&mdash; Indicates No Homework</em>

@@ -28,7 +28,8 @@ jQuery(document).ready(function($) {
 
             $.each(homework, function (key, value) {
                 if (key.indexOf('notes') < 1) {
-                    modal.find('[name="' + key + '"]').val(value);
+                    var fixedValue = value.replace(/\\'/g, "'");
+                    modal.find('[name="' + key + '"]').val(fixedValue);
                 } else if (value) {
                     var notes = value.split(',');
                     var links = [];
