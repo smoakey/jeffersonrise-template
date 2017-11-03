@@ -15,7 +15,7 @@ function init() {
 
 function handleWindowScroll() {
     const header = $('header');
-    const body = $('body');
+    const body = $(window);
 
     if (body.scrollTop() > 0) {
         header.addClass('scrolled');
