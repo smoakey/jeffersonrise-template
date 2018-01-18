@@ -59,7 +59,7 @@ function createNoteLinks($notes) {
                         </td>
                         <td>
                             <?php echo stripslashes($h['wednesday']); ?>
-                            <?php echo createNoteLinks($h['wendesday_notes']); ?>
+                            <?php echo createNoteLinks($h['wednesday_notes']); ?>
                         </td>
                         <td>
                             <?php echo stripslashes($h['thursday']); ?>

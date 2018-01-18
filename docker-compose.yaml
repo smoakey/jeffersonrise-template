@@ -6,6 +6,7 @@ services:
     image: wordpress
     volumes:
       - ./wordpress/wp-content:/var/www/html/wp-content
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     depends_on:
       - mysql
     ports:
